@@ -14,7 +14,8 @@
       
       <guid>https://omer-biz.github.io/posts/my-first-post/</guid>
       <description>My First Post This the first post I have ever made.
-This another line of my Blog post.</description>
+This another line of my Blog post.
+source this.sh if [[ $a = &amp;#39;a&amp;#39; ]] then echo &amp;#34;hello&amp;#34; ls -la elif [[ $a = &amp;#39;b&amp;#39; ]] then echo &amp;#34;This is b&amp;#34; ls -la / fi </description>
     </item>
     
   </channel>
