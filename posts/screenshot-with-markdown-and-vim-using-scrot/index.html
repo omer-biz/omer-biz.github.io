@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.79.1" />
+
+<link rel="canonical" href="https://omer-biz.github.io/posts/screenshot-with-markdown-and-vim-using-scrot/">
+<meta property="og:title" content="Screenshot with Markdown and Vim Using Scrot" />
+<meta property="og:description" content="Screenshot with Vim In this post I will show you the easiest way I could come up for taking a screenshots and inserting them to a markdown file while taking notes using Neovim.
+The title maybe confusing as I couldn&rsquo;t come up with a shorter title myself. If you could come up with a shorter title please contact me.
+I came up with this solution (and problem) while I was taking notes through my playing of CTFs and doing pentests." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://omer-biz.github.io/posts/screenshot-with-markdown-and-vim-using-scrot/" />
+<meta property="article:published_time" content="2020-12-29T18:50:01+03:00" />
+<meta property="article:modified_time" content="2020-12-29T18:50:01+03:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Screenshot with Markdown and Vim Using Scrot"/>
+<meta name="twitter:description" content="Screenshot with Vim In this post I will show you the easiest way I could come up for taking a screenshots and inserting them to a markdown file while taking notes using Neovim.
+The title maybe confusing as I couldn&rsquo;t come up with a shorter title myself. If you could come up with a shorter title please contact me.
+I came up with this solution (and problem) while I was taking notes through my playing of CTFs and doing pentests."/>
+
+
+<meta itemprop="name" content="Screenshot with Markdown and Vim Using Scrot">
+<meta itemprop="description" content="Screenshot with Vim In this post I will show you the easiest way I could come up for taking a screenshots and inserting them to a markdown file while taking notes using Neovim.
+The title maybe confusing as I couldn&rsquo;t come up with a shorter title myself. If you could come up with a shorter title please contact me.
+I came up with this solution (and problem) while I was taking notes through my playing of CTFs and doing pentests.">
+<meta itemprop="datePublished" content="2020-12-29T18:50:01+03:00" />
+<meta itemprop="dateModified" content="2020-12-29T18:50:01+03:00" />
+<meta itemprop="wordCount" content="522">
+
+
+
+<meta itemprop="keywords" content="" />
+
+
+<link rel="stylesheet" href="/css/layout.css" />
+
+
+<link rel="stylesheet" href="/css/default-dark.css" />
+
+
+
+
+<title>
+
+
+     Screenshot with Markdown and Vim Using Scrot 
+
+</title>
+
+</head>
+
+
+<body>
+<div class="main">
+<header>
+
+<div class="header-bar">
+
+  <nav>
+    <div class="siteTitle">
+      <a href="https://omer-biz.github.io/">Omer&#39;s Blog</a>
+    </div> 
+
+    
+    
+
+  </nav>
+
+  
+<div class="social-links-header">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</div>
+
+
+</div>
+
+
+</header>
+
+
+<article class="post">
+    <h1 class="title"> Screenshot with Markdown and Vim Using Scrot </h1>
+    <div class="content"> <h1 id="screenshot-with-vim">Screenshot with Vim</h1>
+<p>In this post I will show you the easiest way I could come up for taking a
+screenshots and inserting them to a markdown file while taking notes using
+Neovim.</p>
+<p>The title maybe confusing as I couldn&rsquo;t come up with a shorter title myself.
+If you could come up with a shorter title please contact me.</p>
+<p>I came up with this solution (and problem) while I was taking notes through
+my playing of CTFs and doing pentests.</p>
+<p>I always run a command and forget to take a screenshot and put into my notes,
+or just hate the hassle of taking a screenshots, creating a folder called Pictures
+for organization, move the screenshot to the Pictures folder and write the
+Markdown syntax to include the Pictures in my note.</p>
+<h2 id="needed-packages">Needed Packages</h2>
+<p>To face this problem we are going to need the following packages:</p>
+<ul>
+<li>scrot,</li>
+<li>neo(vim)</li>
+<li>xclip</li>
+</ul>
+<p>To install <code>scrot</code> and <code>neovim</code> on arch based system all you need to do is.
+On other systems you may have to google how to it using your own package manager.
+And if you&rsquo;re using Windows think about your life choices for a bit.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo pacman -S scrot neovim
+</code></pre></div><h2 id="scrot">Scrot</h2>
+<p>Scrot is a minimalist screenshot taking utility, and has many features, but we
+are going to use the <code>--select</code> option in our case because it&rsquo;s rare that anyone
+would like to take a fullscreen screenshot.</p>
+<p>To take a fullscreen shot though all you need to do is invoke the <code>scrot</code> and
+a screenshot will be taken and stored in the home directory.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">scrot
+</code></pre></div><p>To save the screenshot to a specific directory, supply the path to after the
+command <code>scrot</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">scrot &lt;path&gt;
+</code></pre></div><p>And to take a section of your screen all you have to is supply the <code>--select</code>
+option to the <code>scrot</code> command. Your pointer will change and you can select the
+area you want to take screenshot of.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">scrot --select &lt;path&gt;
+</code></pre></div><h2 id="neovim">Neo(vim)</h2>
+<p>Vim is a text editor and if you reading this you probably know what vim is if
+you don&rsquo;t it&rsquo;s fantastic text editor that uses key-bindings. You should really
+try learning vim.</p>
+<h2 id="xclip">xclip</h2>
+<p>xclip is a command line app that can be used to interact the system clipboard.
+We will use to transfer the name of the screenshot we are taking from our custom
+script to vim.</p>
+<h2 id="taking-a-screenshot-in-vim">Taking a screenshot in Vim</h2>
+<h3 id="the-script">The script</h3>
+<p>First I wrote a shell script that takes a screenshot, makes a directory called <code>Pictures</code>,
+puts the name of the screenshot to the clipboard, and save the screenshot to the
+directory. Not in that particular order though. Here is the script.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+pwd<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>
+pic_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;screenshot_</span><span style="color:#66d9ef">$(</span>date <span style="color:#e6db74">&#34;+%h_%d_%I:%M:%S_%p&#34;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">.png&#34;</span>
+
+mkdir -p <span style="color:#e6db74">&#34;</span>$pwd<span style="color:#e6db74">/Pictures&#34;</span>
+scrot --select <span style="color:#e6db74">&#34;</span>$pwd<span style="color:#e6db74">/Pictures/</span>$pic_name<span style="color:#e6db74">&#34;</span>
+
+echo -n <span style="color:#e6db74">&#34;./Pictures/</span>$pic_name<span style="color:#e6db74">&#34;</span> | xclip
+</code></pre></div><h3 id="vim-config">Vim config</h3>
+<p>Put the following in your vim configuration. This maps <code>CTRL-S</code> to call the screenshoting
+script and inserts a markdown syntax for images in the current line.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">s</span>&gt; :!$<span style="color:#a6e22e">HOME</span><span style="color:#e6db74">/.local/</span><span style="color:#a6e22e">scripts</span>/<span style="color:#a6e22e">screenshot</span>.<span style="color:#a6e22e">sh</span>&lt;<span style="color:#a6e22e">CR</span>&gt;&lt;<span style="color:#a6e22e">CR</span>&gt;<span style="color:#a6e22e">i</span>![](&lt;<span style="color:#a6e22e">ESC</span>&gt;&#34;*<span style="color:#a6e22e">pA</span>)&lt;<span style="color:#a6e22e">Home</span>&gt;&lt;<span style="color:#a6e22e">Right</span>&gt;&lt;<span style="color:#a6e22e">Right</span>&gt;<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>And that&rsquo;s it your done. Now ever time you want to insert a screenshot you just
+have to hit <code>CTRL-S</code> and insert the image name. Here is a demo of me trying to
+record a video using <code>ffmpeg</code> and capture it&rsquo;s output.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/7q_VUwZU45E" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+ </div>
+    <footer class="post-footer">
+
+  <div class="post-footer-data">
+            
+<div class="tags">
+  
+</div>
+
+    <div class="date"> 2020-12-29 </div>
+    
+  </div>
+</footer>
+
+
+
+</article>
+
+  <footer>
+
+  <div class="social-links-footer">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div class="social-link">
+  <a href="https://omer-biz.github.io/index.xml" target="_blank">RSS</a>
+  </div>
+
+</div>
+
+
+  <div class="copyright">  </div>
+
+  <div class="poweredby">
+    Powered by <a href="https://gohugo.io/">Hugo</a>.
+  </div>
+
+  </footer>
+
+</div> 
+
+</body>
+</html>
+
