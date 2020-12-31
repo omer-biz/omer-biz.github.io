@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>ctrl - Tag - Omer&#39;s Blog</title>
+        <link>https://omer-biz.github.io/tags/ctrl/</link>
+        <description>ctrl - Tag - Omer&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>omerabdi@pm.me (Omer)</managingEditor>
+            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Thu, 31 Dec 2020 09:57:46 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/tags/ctrl/" rel="self" type="application/rss+xml" /><item>
+    <title>Remap Capslock to Escape and Ctrl</title>
+    <link>https://omer-biz.github.io/posts/remap-capslock-to-escape-and-ctrl/</link>
+    <pubDate>Thu, 31 Dec 2020 09:57:46 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/posts/remap-capslock-to-escape-and-ctrl/</guid>
+    <description><![CDATA[Remap Capslock to Escape and Ctrl In this post I&rsquo;m gonna be showing you how I remapped capslock to ctrl when you hold it, and esc when you tap it.
+The need for this comes from people using window managers, or keyboard driven text editors like vim, and emacs or just you use the ctrl key a lot and you hate the weird motion you have to do to get to it.]]></description>
+</item></channel>
+</rss>
