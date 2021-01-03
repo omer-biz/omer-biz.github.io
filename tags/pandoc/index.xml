@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>pandoc - Tag - Omer&#39;s Blog</title>
+        <link>https://omer-biz.github.io/tags/pandoc/</link>
+        <description>pandoc - Tag - Omer&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>omerabdi@pm.me (Omer)</managingEditor>
+            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Fri, 01 Jan 2021 10:46:44 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/tags/pandoc/" rel="self" type="application/rss+xml" /><item>
+    <title>Pandoc</title>
+    <link>https://omer-biz.github.io/posts/pandoc/</link>
+    <pubDate>Fri, 01 Jan 2021 10:46:44 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/posts/pandoc/</guid>
+    <description><![CDATA[Pandoc Have you ever wanted to write a document, but you hate using applications like MicroSoft Office, Libre Office, Google Docs, or anything of the sorts. Do you want to write your documents just like you write codes, with your code editors perk. I for example use vim and I would have loved, if these application supported vim bindings. Or are you tired of these &ldquo;Docs apps&rdquo; hogging your ram. Well look no further, you can just use pandoc.]]></description>
+</item></channel>
+</rss>

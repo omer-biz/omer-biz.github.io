@@ -2,17 +2,21 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://omer-biz.github.io/categories/</loc><lastmod>2021-01-01T10:46:44&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/tags/document/</loc><lastmod>2021-01-01T10:46:44&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/tags/linux/</loc><lastmod>2021-01-01T10:46:44&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/tags/markdown/</loc><lastmod>2021-01-01T10:46:44&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/</loc><lastmod>2021-01-01T10:46:44&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/posts/pandoc/</loc><lastmod>2021-01-01T10:46:44&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/tags/pandoc/</loc><lastmod>2021-01-01T10:46:44&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/posts/</loc><lastmod>2021-01-01T10:46:44&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/tags/</loc><lastmod>2021-01-01T10:46:44&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/categories/tutorial/</loc><lastmod>2021-01-01T10:46:44&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/tags/capslock/</loc><lastmod>2020-12-31T09:57:46&#43;03:00</lastmod></url><url>
-            <loc>https://omer-biz.github.io/categories/</loc><lastmod>2020-12-31T09:57:46&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/tags/ctrl/</loc><lastmod>2020-12-31T09:57:46&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/tags/escape/</loc><lastmod>2020-12-31T09:57:46&#43;03:00</lastmod></url><url>
-            <loc>https://omer-biz.github.io/tags/linux/</loc><lastmod>2020-12-31T09:57:46&#43;03:00</lastmod></url><url>
-            <loc>https://omer-biz.github.io/</loc><lastmod>2020-12-31T09:57:46&#43;03:00</lastmod></url><url>
-            <loc>https://omer-biz.github.io/posts/</loc><lastmod>2020-12-31T09:57:46&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/tags/remap/</loc><lastmod>2020-12-31T09:57:46&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/posts/remap-capslock-to-escape-and-ctrl/</loc><lastmod>2020-12-31T09:57:46&#43;03:00</lastmod></url><url>
-            <loc>https://omer-biz.github.io/tags/</loc><lastmod>2020-12-31T09:57:46&#43;03:00</lastmod></url><url>
-            <loc>https://omer-biz.github.io/categories/tutorial/</loc><lastmod>2020-12-31T09:57:46&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/tags/neovim/</loc><lastmod>2020-12-29T18:50:01&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/tags/screenshot/</loc><lastmod>2020-12-29T18:50:01&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/posts/screenshot-with-markdown-and-vim-using-scrot/</loc><lastmod>2020-12-29T18:50:01&#43;03:00</lastmod></url><url>
