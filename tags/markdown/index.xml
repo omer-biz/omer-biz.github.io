@@ -10,6 +10,7 @@
     <pubDate>Fri, 01 Jan 2021 10:46:44 &#43;0300</pubDate>
     <author>Author</author>
     <guid>https://omer-biz.github.io/posts/pandoc/</guid>
-    <description><![CDATA[Pandoc Have you ever wanted to write a document, but you hate using applications like MicroSoft Office, Libre Office, Google Docs, or anything of the sorts. Do you want to write your documents just like you write codes, with your code editors perk. I for example use vim and I would have loved, if these application supported vim bindings. Or are you tired of these &ldquo;Docs apps&rdquo; hogging your ram. Well look no further, you can just use pandoc.]]></description>
+    <description><![CDATA[Pandoc Have you ever wanted to write a document, but you hate using applications like MicroSoft Office, Libre Office, Google Docs, or anything of the sorts. Do you want to write your documents just like you write codes, with your code editors perk. I for example use vim and I would have loved, if these application supported vim bindings. Well look no further, you can just use pandoc.
+Pandoc is a command-line app which can be used to convert a document of any type to any other type.]]></description>
 </item></channel>
 </rss>

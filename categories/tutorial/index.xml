@@ -4,7 +4,15 @@
         <link>https://omer-biz.github.io/categories/tutorial/</link>
         <description>Tutorial - Category - Omer&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>omerabdi@pm.me (Omer)</managingEditor>
-            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Thu, 31 Dec 2020 09:57:46 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/categories/tutorial/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Fri, 01 Jan 2021 10:46:44 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/categories/tutorial/" rel="self" type="application/rss+xml" /><item>
+    <title>Pandoc</title>
+    <link>https://omer-biz.github.io/posts/pandoc/</link>
+    <pubDate>Fri, 01 Jan 2021 10:46:44 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/posts/pandoc/</guid>
+    <description><![CDATA[Pandoc Have you ever wanted to write a document, but you hate using applications like MicroSoft Office, Libre Office, Google Docs, or anything of the sorts. Do you want to write your documents just like you write codes, with your code editors perk. I for example use vim and I would have loved, if these application supported vim bindings. Well look no further, you can just use pandoc.
+Pandoc is a command-line app which can be used to convert a document of any type to any other type.]]></description>
+</item><item>
     <title>Remap Capslock to Escape and Ctrl</title>
     <link>https://omer-biz.github.io/posts/remap-capslock-to-escape-and-ctrl/</link>
     <pubDate>Thu, 31 Dec 2020 09:57:46 &#43;0300</pubDate>
