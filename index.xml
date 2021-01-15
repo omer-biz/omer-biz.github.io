@@ -4,9 +4,16 @@
         <link>https://omer-biz.github.io/</link>
         <description>This my personal blog where I write about Tech</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>omerabdi@pm.me (Omer)</managingEditor>
-            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Sun, 03 Jan 2021 21:06:22 &#43;0300</lastBuildDate>
+            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Fri, 15 Jan 2021 16:29:48 &#43;0300</lastBuildDate>
             <atom:link href="https://omer-biz.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Mounting and unmounting with dmenu</title>
+    <link>https://omer-biz.github.io/posts/mounting_and_unmounting_with_dmenu/</link>
+    <pubDate>Fri, 15 Jan 2021 16:29:48 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/posts/mounting_and_unmounting_with_dmenu/</guid>
+    <description><![CDATA[Mounting and unmounting with dmenu Mounting devices with the mount command is a hassle, at least for me. To mount devices with the mount command you need to be root but if you use any kind of file manager to mount devices you don&rsquo;t need to be root. Have you ever wonder why is that. Well it&rsquo;s simple they use a different kind of command it&rsquo;s called udiskctl here the help.]]></description>
+</item><item>
     <title>How I hacked my first router</title>
     <link>https://omer-biz.github.io/posts/how_i_hacked_my_first_router/</link>
     <pubDate>Sun, 03 Jan 2021 21:06:22 &#43;0300</pubDate>

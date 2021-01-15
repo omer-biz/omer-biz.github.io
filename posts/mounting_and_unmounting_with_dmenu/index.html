@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Mounting and unmounting with dmenu - Omer&#39;s Blog</title><meta name="Description" content="This my personal blog where I write about Tech"><meta property="og:title" content="Mounting and unmounting with dmenu" />
+<meta property="og:description" content="Mounting and unmounting with dmenu Mounting devices with the mount command is a hassle, at least for me. To mount devices with the mount command you need to be root but if you use any kind of file manager to mount devices you don&rsquo;t need to be root. Have you ever wonder why is that. Well it&rsquo;s simple they use a different kind of command it&rsquo;s called udiskctl here the help." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://omer-biz.github.io/posts/mounting_and_unmounting_with_dmenu/" />
+<meta property="article:published_time" content="2021-01-15T16:29:48+03:00" />
+<meta property="article:modified_time" content="2021-01-15T16:29:48+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mounting and unmounting with dmenu"/>
+<meta name="twitter:description" content="Mounting and unmounting with dmenu Mounting devices with the mount command is a hassle, at least for me. To mount devices with the mount command you need to be root but if you use any kind of file manager to mount devices you don&rsquo;t need to be root. Have you ever wonder why is that. Well it&rsquo;s simple they use a different kind of command it&rsquo;s called udiskctl here the help."/>
+<meta name="application-name" content="Omer&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Omer&#39;s Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://omer-biz.github.io/posts/mounting_and_unmounting_with_dmenu/" /><link rel="prev" href="https://omer-biz.github.io/posts/how_i_hacked_my_first_router/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Mounting and unmounting with dmenu",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/omer-biz.github.io\/posts\/mounting_and_unmounting_with_dmenu\/"
+        },"genre": "posts","keywords": "linux, dmeu, udiskctl","wordcount":  687 ,
+        "url": "https:\/\/omer-biz.github.io\/posts\/mounting_and_unmounting_with_dmenu\/","datePublished": "2021-01-15T16:29:48+03:00","dateModified": "2021-01-15T16:29:48+03:00","publisher": {
+            "@type": "Organization",
+            "name": "Omer"},"author": {
+                "@type": "Person",
+                "name": "Omer"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Omer&#39;s Blog">Omer&#39;s Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/" title="Home Page"> Home </a><a class="menu-item" href="/posts/" title="Blog Posts"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Omer&#39;s Blog">Omer&#39;s Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/" title="Home Page">Home</a><a class="menu-item" href="/posts/" title="Blog Posts">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Mounting and unmounting with dmenu</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Omer</a></span>&nbsp;<span class="post-category">included in <a href="/categories/tutorial/"><i class="far fa-folder fa-fw"></i>tutorial</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-15">2021-01-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;687 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#commands-used">Commands used</a>
+      <ul>
+        <li><a href="#udiskctl">udiskctl</a></li>
+        <li><a href="#lsblk">lsblk</a></li>
+        <li><a href="#awk">awk</a></li>
+        <li><a href="#cut">cut</a></li>
+        <li><a href="#dmenu">dmenu</a></li>
+      </ul>
+    </li>
+    <li><a href="#mounting">Mounting</a></li>
+    <li><a href="#unmounting">Unmounting</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="mounting-and-unmounting-with-dmenu">Mounting and unmounting with dmenu</h1>
+<p>Mounting devices with the <code>mount</code> command is a hassle, at least for me. To mount
+devices with the <code>mount</code> command you need to be root but if you use any kind of
+file manager to mount devices you don&rsquo;t need to be root. Have you ever wonder why is
+that. Well it&rsquo;s simple they use a different kind of command it&rsquo;s called <code>udiskctl</code> here the help.</p>
+<h2 id="commands-used">Commands used</h2>
+<h3 id="udiskctl">udiskctl</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./Pictures/screenshot_Jan_15_04:43:30_PM.png"
+        data-srcset="./Pictures/screenshot_Jan_15_04:43:30_PM.png, ./Pictures/screenshot_Jan_15_04:43:30_PM.png 1.5x, ./Pictures/screenshot_Jan_15_04:43:30_PM.png 2x"
+        data-sizes="auto"
+        alt="./Pictures/screenshot_Jan_15_04:43:30_PM.png"
+        title="udiskctl" /></p>
+<p>udiskctl has a lot commands. We will be using the <code>mount</code> and <code>unmount</code> commands.</p>
+<p>Here is the help.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./Pictures/screenshot_Jan_15_04:47:10_PM.png"
+        data-srcset="./Pictures/screenshot_Jan_15_04:47:10_PM.png, ./Pictures/screenshot_Jan_15_04:47:10_PM.png 1.5x, ./Pictures/screenshot_Jan_15_04:47:10_PM.png 2x"
+        data-sizes="auto"
+        alt="./Pictures/screenshot_Jan_15_04:47:10_PM.png"
+        title="help udiskctl" /></p>
+<h3 id="lsblk">lsblk</h3>
+<p>What the <code>lsblk</code> command does is very simple, it lists block devices, and information
+related to those devices, some of the information it displays are the mountpoint, label,
+name, type, and so on. Here is an example</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./Pictures/screenshot_Jan_15_08:39:38_PM.png"
+        data-srcset="./Pictures/screenshot_Jan_15_08:39:38_PM.png, ./Pictures/screenshot_Jan_15_08:39:38_PM.png 1.5x, ./Pictures/screenshot_Jan_15_08:39:38_PM.png 2x"
+        data-sizes="auto"
+        alt="./Pictures/screenshot_Jan_15_08:39:38_PM.png"
+        title="lsblk" /></p>
+<h3 id="awk">awk</h3>
+<p>Awk is a programming language, and whole new world of knowledge. I really recommend you
+to take your time and learn it, that dosen&rsquo;t mean by far I&rsquo;m anywhere near of being proficient
+in <code>awk</code>, but I think I have some basic knowledge. We will use <code>awk</code> to filter the output of commands and
+select certain columns of the output.</p>
+<h3 id="cut">cut</h3>
+<p>cut can be used to select and or remove some section in a line. Will be used here to parse
+the output of awk, why ? you might ask, why don&rsquo;t I just use awk to do that too and the answer
+as always is because I&rsquo;m an idiot, and couldn&rsquo;t find any better way.</p>
+<h3 id="dmenu">dmenu</h3>
+<p>Dmenu is not a command it&rsquo;s sort of an app. What it dose is basally simple you give or rather
+pipe a bunch
+of data separated by newline to it, and it prompts you to chose from them once you select one of
+them it prints to standard output.</p>
+<p>For example</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> -e <span class="s2">&#34;choice 1\nchoice 2 \n choice 3&#34;</span> <span class="p">|</span> dmenu
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./Pictures/a.png"
+        data-srcset="./Pictures/a.png, ./Pictures/a.png 1.5x, ./Pictures/a.png 2x"
+        data-sizes="auto"
+        alt="./Pictures/a.png"
+        title="dmenu" /></p>
+<h2 id="mounting">Mounting</h2>
+<p>Let&rsquo;s put these commands together to build a mounting script. First I&rsquo;m gonna put the script
+here and explain it after wards.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#! /bin/sh
+</span><span class="cp"></span>
+<span class="nv">mount</span><span class="o">=</span><span class="k">$(</span>lsblk -l -o NAME,LABEL,TYPE,MOUNTPOINT <span class="p">|</span> awk <span class="s1">&#39;/[part|disk] $/ {print $1 &#34;: &#34; $2}&#39;</span> <span class="p">|</span> dmenu -i -p <span class="s2">&#34;mount: &#34;</span> <span class="p">|</span> cut -d<span class="s1">&#39;:&#39;</span> -f 1<span class="k">)</span>
+<span class="o">[</span> ! -z <span class="nv">$mount</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> notify-send <span class="s2">&#34;</span><span class="k">$(</span>udisksctl mount -b <span class="s2">&#34;/dev/</span><span class="nv">$mount</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The First line tells who ever is going to run this script to use <code>/bin/sh</code> to run it.
+The <code>mount=</code> part is simply assigning a variable. The <code>$()</code> means to replace what every is
+returned or printed by what is inside the braces the alternative way is using ``.</p>
+<p>The <code>lsblk</code> command, with it&rsquo;s options, print the name, label, type, mountpoint. We will
+use the name to differentiate the partitions. The label to get their name, and mountpoint
+to know weather they need to mounted or not.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./Pictures/screenshot_Jan_15_09:19:06_PM.png"
+        data-srcset="./Pictures/screenshot_Jan_15_09:19:06_PM.png, ./Pictures/screenshot_Jan_15_09:19:06_PM.png 1.5x, ./Pictures/screenshot_Jan_15_09:19:06_PM.png 2x"
+        data-sizes="auto"
+        alt="./Pictures/screenshot_Jan_15_09:19:06_PM.png"
+        title="lsblk with options" /></p>
+<p>The <code>awk '/[part|disk] $/ {print $1 &quot;: &quot; print $2}'</code> takes the output of lsblk and filters the
+partitions which are not mounted and &ldquo;prints&rdquo; them with their &ldquo;label&rdquo;.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./Pictures/screenshot_Jan_15_09:23:15_PM.png"
+        data-srcset="./Pictures/screenshot_Jan_15_09:23:15_PM.png, ./Pictures/screenshot_Jan_15_09:23:15_PM.png 1.5x, ./Pictures/screenshot_Jan_15_09:23:15_PM.png 2x"
+        data-sizes="auto"
+        alt="./Pictures/screenshot_Jan_15_09:23:15_PM.png"
+        title="lsblk with awk" /></p>
+<p>Now pipe this to dmenu and you get your list of unmounted drives.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./Pictures/b.png"
+        data-srcset="./Pictures/b.png, ./Pictures/b.png 1.5x, ./Pictures/b.png 2x"
+        data-sizes="auto"
+        alt="./Pictures/b.png"
+        title="lsblk, awk, and dmenu" /></p>
+<p>The last part i.e. <code>cut -f ':' -d 1</code> gets ride of the label and preserves the name of drive.</p>
+<p>On The next line we check if the user chose anything, if so we mount and notify that it has
+been mounted.</p>
+<h2 id="unmounting">Unmounting</h2>
+<p>The unmount script dose the same thing, but in reverse i.e. do use the <code>unmount</code> command with
+<code>udisksctl</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/sh
+</span><span class="cp"></span>
+<span class="nv">unmount</span><span class="o">=</span><span class="k">$(</span>lsblk -l -o NAME,LABEL,TYPE,MOUNTPOINT <span class="p">|</span>  awk <span class="s1">&#39;/[part|disk] \/.*$/&amp;&amp;!/nvme/ {print $1 &#34;: &#34; $2}&#39;</span> <span class="p">|</span> dmenu -i -p <span class="s2">&#34;unmount: &#34;</span> <span class="p">|</span> cut -d <span class="s1">&#39;:&#39;</span> -f 1<span class="k">)</span>
+<span class="o">[</span> ! -z <span class="nv">$unmount</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> notify-send <span class="s2">&#34;</span><span class="k">$(</span>udisksctl unmount -f --no-user-interaction -b <span class="s2">&#34;/dev/</span><span class="nv">$unmount</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Although there is a bit of difference with the awk command. Here I&rsquo;m using something different
+to filter the output of <code>lsblk</code>. I&rsquo;m using <code>'/[part|disk] \/.*$/&amp;&amp;!/nvme/'</code>. If you look
+closely these are two Regexp connected by an <code>and</code>(<code>&amp;&amp;</code>) operand, which means what ever
+comes through awk must satisfy both of these Regexp.</p>
+<p>The first part <code>/[part|disk] \/.*$/</code> looks for mounted drives, and the second part <code>!/nvme/</code>
+filters out my main internal drive. And that&rsquo;s it folks we have done it.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-01-15</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://omer-biz.github.io/posts/mounting_and_unmounting_with_dmenu/" data-title="Mounting and unmounting with dmenu" data-via="_th4tk1d" data-hashtags="linux,dmeu,udiskctl"><i class="fab fa-twitter fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/linux/">linux</a>,&nbsp;<a href="/tags/dmeu/">dmeu</a>,&nbsp;<a href="/tags/udiskctl/">udiskctl</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/how_i_hacked_my_first_router/" class="prev" rel="prev" title="How I hacked my first router"><i class="fas fa-angle-left fa-fw"></i>How I hacked my first router</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

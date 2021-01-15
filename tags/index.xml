@@ -4,7 +4,28 @@
         <link>https://omer-biz.github.io/tags/</link>
         <description>Tags - Tag - Omer&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>omerabdi@pm.me (Omer)</managingEditor>
-            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Sun, 03 Jan 2021 21:06:22 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Fri, 15 Jan 2021 16:29:48 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>dmeu</title>
+    <link>https://omer-biz.github.io/tags/dmeu/</link>
+    <pubDate>Fri, 15 Jan 2021 16:29:48 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/tags/dmeu/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>linux</title>
+    <link>https://omer-biz.github.io/tags/linux/</link>
+    <pubDate>Fri, 15 Jan 2021 16:29:48 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/tags/linux/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>udiskctl</title>
+    <link>https://omer-biz.github.io/tags/udiskctl/</link>
+    <pubDate>Fri, 15 Jan 2021 16:29:48 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/tags/udiskctl/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>exploit</title>
     <link>https://omer-biz.github.io/tags/exploit/</link>
     <pubDate>Sun, 03 Jan 2021 21:06:22 &#43;0300</pubDate>
@@ -40,13 +61,6 @@
     <guid>https://omer-biz.github.io/tags/document/</guid>
     <description><![CDATA[]]></description>
 </item><item>
-    <title>linux</title>
-    <link>https://omer-biz.github.io/tags/linux/</link>
-    <pubDate>Fri, 01 Jan 2021 10:46:44 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/tags/linux/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
     <title>markdown</title>
     <link>https://omer-biz.github.io/tags/markdown/</link>
     <pubDate>Fri, 01 Jan 2021 10:46:44 &#43;0300</pubDate>
@@ -59,20 +73,6 @@
     <pubDate>Fri, 01 Jan 2021 10:46:44 &#43;0300</pubDate>
     <author>Author</author>
     <guid>https://omer-biz.github.io/tags/pandoc/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>capslock</title>
-    <link>https://omer-biz.github.io/tags/capslock/</link>
-    <pubDate>Thu, 31 Dec 2020 09:57:46 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/tags/capslock/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>ctrl</title>
-    <link>https://omer-biz.github.io/tags/ctrl/</link>
-    <pubDate>Thu, 31 Dec 2020 09:57:46 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/tags/ctrl/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>
