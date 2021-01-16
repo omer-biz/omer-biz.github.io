@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>tutorial - Category - Omer&#39;s Blog</title>
+        <title>Tutorial - Category - Omer&#39;s Blog</title>
         <link>https://omer-biz.github.io/categories/tutorial/</link>
-        <description>tutorial - Category - Omer&#39;s Blog</description>
+        <description>Tutorial - Category - Omer&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>omerabdi@pm.me (Omer)</managingEditor>
             <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Fri, 15 Jan 2021 16:29:48 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/categories/tutorial/" rel="self" type="application/rss+xml" /><item>
     <title>Mounting and unmounting with dmenu</title>
