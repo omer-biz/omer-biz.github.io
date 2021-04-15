@@ -18,7 +18,7 @@
 <meta name="application-name" content="Omer&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Omer&#39;s Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://omer-biz.github.io/posts/mounting_and_unmounting_with_dmenu/" /><link rel="prev" href="https://omer-biz.github.io/posts/how_i_hacked_my_first_router/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://omer-biz.github.io/posts/mounting_and_unmounting_with_dmenu/" /><link rel="prev" href="https://omer-biz.github.io/posts/how_i_hacked_my_first_router/" /><link rel="next" href="https://omer-biz.github.io/posts/what-is-overthewire/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/omer-biz.github.io\/posts\/mounting_and_unmounting_with_dmenu\/"
-        },"genre": "posts","keywords": "linux, dmeu, udiskctl","wordcount":  687 ,
+        },"genre": "posts","keywords": "linux, dmeu, udiskctl","wordcount":  691 ,
         "url": "https:\/\/omer-biz.github.io\/posts\/mounting_and_unmounting_with_dmenu\/","datePublished": "2021-01-15T16:29:48+03:00","dateModified": "2021-01-15T16:29:48+03:00","publisher": {
             "@type": "Organization",
             "name": "Omer"},"author": {
@@ -41,7 +41,7 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="Omer&#39;s Blog"><span id="id-1" class="typeit"></span></a>
+            <a href="/" title="Omer&#39;s Blog">Omer&#39;s blog</a>
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/" title="Home Page"> Home </a><a class="menu-item" href="/posts/" title="Blog Posts"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
@@ -54,7 +54,7 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="Omer&#39;s Blog"><span id="id-2" class="typeit"></span></a>
+                <a href="/" title="Omer&#39;s Blog">Omer&#39;s blog</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -77,7 +77,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Mounting and unmounting with dmenu</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Omer</a></span>&nbsp;<span class="post-category">included in <a href="/categories/tutorial/"><i class="far fa-folder fa-fw"></i>Tutorial</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-15">2021-01-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;687 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-15">2021-01-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;691 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -138,7 +138,7 @@ name, type, and so on. Here is an example</p>
         title="lsblk" /></p>
 <h3 id="awk">awk</h3>
 <p>Awk is a programming language, and whole new world of knowledge. I really recommend you
-to take your time and learn it, that dosen&rsquo;t mean by far I&rsquo;m anywhere near of being proficient
+take your time and learn it, that dosen&rsquo;t mean by far I&rsquo;m anywhere near of being perfect
 in <code>awk</code>, but I think I have some basic knowledge. We will use <code>awk</code> to filter the output of commands and
 select certain columns of the output.</p>
 <h3 id="cut">cut</h3>
@@ -149,7 +149,7 @@ as always is because I&rsquo;m an idiot, and couldn&rsquo;t find any better way.
 <p>Dmenu is not a command it&rsquo;s sort of an app. What it dose is basally simple you give or rather
 pipe a bunch
 of data separated by newline to it, and it prompts you to chose from them once you select one of
-them it prints to standard output.</p>
+them it prints it, the option you chose, to standard output.</p>
 <p>For example</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -266,7 +266,8 @@ filters out my main internal drive. And that&rsquo;s it folks we have done it.</
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/how_i_hacked_my_first_router/" class="prev" rel="prev" title="How I hacked my first router"><i class="fas fa-angle-left fa-fw"></i>How I hacked my first router</a></div>
+    <div class="post-nav"><a href="/posts/how_i_hacked_my_first_router/" class="prev" rel="prev" title="How I hacked my first router"><i class="fas fa-angle-left fa-fw"></i>How I hacked my first router</a>
+            <a href="/posts/what-is-overthewire/" class="next" rel="next" title="What Is OverTheWire">What Is OverTheWire<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">
@@ -279,5 +280,5 @@ filters out my main internal drive. And that&rsquo;s it folks we have done it.</
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"data":{"id-1":"Hi, I'm Omer","id-2":"Hi, I'm Omer"},"typeit":{"cursorChar":null,"cursorSpeed":null,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":null,"speed":null}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

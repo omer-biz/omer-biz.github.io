@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Misc - Category - Omer&#39;s Blog</title>
+        <link>https://omer-biz.github.io/categories/misc/</link>
+        <description>Misc - Category - Omer&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>omerabdi@pm.me (Omer)</managingEditor>
+            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Tue, 09 Feb 2021 10:34:24 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/categories/misc/" rel="self" type="application/rss+xml" /><item>
+    <title>What Is OverTheWire</title>
+    <link>https://omer-biz.github.io/posts/what-is-overthewire/</link>
+    <pubDate>Tue, 09 Feb 2021 10:34:24 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/posts/what-is-overthewire/</guid>
+    <description><![CDATA[What is OverTheWire Overthewire is a really good resource for someone really new to cybersecurity to learn about cybersecurity. It has a hands on approach of teaching things. It has what I call Seasons. These so called Seasons are not actually numbered but rather named, and each season has an episode. At least that&rsquo;s how I imagine it in my head.
+Each season teaches a different cybersecurity concept. For example season 1 (Bandit) teaches about the Linux Operating System.]]></description>
+</item></channel>
+</rss>
