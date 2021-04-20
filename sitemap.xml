@@ -2,20 +2,28 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://omer-biz.github.io/categories/</loc><lastmod>2021-02-09T10:34:24&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/tags/binary-exploitation/</loc><lastmod>2021-04-16T12:19:38&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/categories/</loc><lastmod>2021-04-16T12:19:38&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/tags/format_strings/</loc><lastmod>2021-04-16T12:19:38&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/posts/narnia-5-overthewire/</loc><lastmod>2021-04-16T12:19:38&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/tags/narnia5/</loc><lastmod>2021-04-16T12:19:38&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/</loc><lastmod>2021-04-16T12:19:38&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/tags/overthewire/</loc><lastmod>2021-04-16T12:19:38&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/posts/</loc><lastmod>2021-04-16T12:19:38&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/tags/</loc><lastmod>2021-04-16T12:19:38&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/categories/writeup/</loc><lastmod>2021-04-16T12:19:38&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/tags/ctf/</loc><lastmod>2021-02-09T10:34:24&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/tags/ctfs/</loc><lastmod>2021-02-09T10:34:24&#43;03:00</lastmod></url><url>
+            <loc>https://omer-biz.github.io/tags/hacking/</loc><lastmod>2021-02-09T10:34:24&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/categories/misc/</loc><lastmod>2021-02-09T10:34:24&#43;03:00</lastmod></url><url>
-            <loc>https://omer-biz.github.io/</loc><lastmod>2021-02-09T10:34:24&#43;03:00</lastmod></url><url>
-            <loc>https://omer-biz.github.io/posts/</loc><lastmod>2021-02-09T10:34:24&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/posts/what-is-overthewire/</loc><lastmod>2021-02-09T10:34:24&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/tags/dmeu/</loc><lastmod>2021-01-15T16:29:48&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/tags/linux/</loc><lastmod>2021-01-15T16:29:48&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/posts/mounting_and_unmounting_with_dmenu/</loc><lastmod>2021-01-15T16:29:48&#43;03:00</lastmod></url><url>
-            <loc>https://omer-biz.github.io/tags/</loc><lastmod>2021-01-15T16:29:48&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/categories/tutorial/</loc><lastmod>2021-01-15T16:29:48&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/tags/udiskctl/</loc><lastmod>2021-01-15T16:29:48&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/tags/exploit/</loc><lastmod>2021-01-03T21:06:22&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/categories/hacking/</loc><lastmod>2021-01-03T21:06:22&#43;03:00</lastmod></url><url>
-            <loc>https://omer-biz.github.io/tags/hacking/</loc><lastmod>2021-01-03T21:06:22&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/posts/how_i_hacked_my_first_router/</loc><lastmod>2021-01-03T21:06:22&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/tags/router/</loc><lastmod>2021-01-03T21:06:22&#43;03:00</lastmod></url><url>
             <loc>https://omer-biz.github.io/tags/zte/</loc><lastmod>2021-01-03T21:06:22&#43;03:00</lastmod></url><url>

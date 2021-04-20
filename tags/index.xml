@@ -4,7 +4,56 @@
         <link>https://omer-biz.github.io/tags/</link>
         <description>Tags - Tag - Omer&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>omerabdi@pm.me (Omer)</managingEditor>
-            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Fri, 15 Jan 2021 16:29:48 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Fri, 16 Apr 2021 12:19:38 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>binary exploitation</title>
+    <link>https://omer-biz.github.io/tags/binary-exploitation/</link>
+    <pubDate>Fri, 16 Apr 2021 12:19:38 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/tags/binary-exploitation/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>format_strings</title>
+    <link>https://omer-biz.github.io/tags/format_strings/</link>
+    <pubDate>Fri, 16 Apr 2021 12:19:38 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/tags/format_strings/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>narnia5</title>
+    <link>https://omer-biz.github.io/tags/narnia5/</link>
+    <pubDate>Fri, 16 Apr 2021 12:19:38 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/tags/narnia5/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>overthewire</title>
+    <link>https://omer-biz.github.io/tags/overthewire/</link>
+    <pubDate>Fri, 16 Apr 2021 12:19:38 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/tags/overthewire/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>ctf</title>
+    <link>https://omer-biz.github.io/tags/ctf/</link>
+    <pubDate>Tue, 09 Feb 2021 10:34:24 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/tags/ctf/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>ctfs</title>
+    <link>https://omer-biz.github.io/tags/ctfs/</link>
+    <pubDate>Tue, 09 Feb 2021 10:34:24 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/tags/ctfs/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>hacking</title>
+    <link>https://omer-biz.github.io/tags/hacking/</link>
+    <pubDate>Tue, 09 Feb 2021 10:34:24 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/tags/hacking/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>dmeu</title>
     <link>https://omer-biz.github.io/tags/dmeu/</link>
     <pubDate>Fri, 15 Jan 2021 16:29:48 &#43;0300</pubDate>
@@ -24,55 +73,6 @@
     <pubDate>Fri, 15 Jan 2021 16:29:48 &#43;0300</pubDate>
     <author>Author</author>
     <guid>https://omer-biz.github.io/tags/udiskctl/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>exploit</title>
-    <link>https://omer-biz.github.io/tags/exploit/</link>
-    <pubDate>Sun, 03 Jan 2021 21:06:22 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/tags/exploit/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>hacking</title>
-    <link>https://omer-biz.github.io/tags/hacking/</link>
-    <pubDate>Sun, 03 Jan 2021 21:06:22 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/tags/hacking/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>router</title>
-    <link>https://omer-biz.github.io/tags/router/</link>
-    <pubDate>Sun, 03 Jan 2021 21:06:22 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/tags/router/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>ZTE</title>
-    <link>https://omer-biz.github.io/tags/zte/</link>
-    <pubDate>Sun, 03 Jan 2021 21:06:22 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/tags/zte/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>document</title>
-    <link>https://omer-biz.github.io/tags/document/</link>
-    <pubDate>Fri, 01 Jan 2021 10:46:44 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/tags/document/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>markdown</title>
-    <link>https://omer-biz.github.io/tags/markdown/</link>
-    <pubDate>Fri, 01 Jan 2021 10:46:44 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/tags/markdown/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>pandoc</title>
-    <link>https://omer-biz.github.io/tags/pandoc/</link>
-    <pubDate>Fri, 01 Jan 2021 10:46:44 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/tags/pandoc/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>

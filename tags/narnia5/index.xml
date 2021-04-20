@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>narnia5 - Tag - Omer&#39;s Blog</title>
+        <link>https://omer-biz.github.io/tags/narnia5/</link>
+        <description>narnia5 - Tag - Omer&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>omerabdi@pm.me (Omer)</managingEditor>
+            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Fri, 16 Apr 2021 12:19:38 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/tags/narnia5/" rel="self" type="application/rss+xml" /><item>
+    <title>Narnia 5 - OverTheWire</title>
+    <link>https://omer-biz.github.io/posts/narnia-5-overthewire/</link>
+    <pubDate>Fri, 16 Apr 2021 12:19:38 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/posts/narnia-5-overthewire/</guid>
+    <description><![CDATA[Narnia 5 - OverTheWire Introduction This level introduces what format string vulnerabilities are. A program is said to have a format string vulnerability if it pass unsensitized user input to one the printf family of functions. These are as follows.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  #include &lt;stdio.h&gt; int printf(const char *format, ...); int fprintf(FILE *stream, const char *format, ...); int dprintf(int fd, const char *format, .]]></description>
+</item></channel>
+</rss>
