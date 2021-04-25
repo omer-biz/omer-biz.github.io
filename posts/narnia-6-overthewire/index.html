@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Narnia 6 - OverTheWire - Omer&#39;s Blog</title><meta name="Description" content="This my personal blog where I write about Tech"><meta property="og:title" content="Narnia 6 - OverTheWire" />
+<meta property="og:description" content="Narnia 6 - OverTheWire Introduction This level is all about overflowing into a local variable, specifically to a local function pointer variable. When you run the program without any argument it will exit asking for 2 arguments. These two arguments are mapped or copied to the two local variables on the stack, namely b1, and b2. They are copied using strcpy which we know is not a safe way of copying from user inputs." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://omer-biz.github.io/posts/narnia-6-overthewire/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-20T13:48:36&#43;03:00" />
+<meta property="article:modified_time" content="2021-04-20T13:48:36&#43;03:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Narnia 6 - OverTheWire"/>
+<meta name="twitter:description" content="Narnia 6 - OverTheWire Introduction This level is all about overflowing into a local variable, specifically to a local function pointer variable. When you run the program without any argument it will exit asking for 2 arguments. These two arguments are mapped or copied to the two local variables on the stack, namely b1, and b2. They are copied using strcpy which we know is not a safe way of copying from user inputs."/>
+<meta name="application-name" content="Omer&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Omer&#39;s Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://omer-biz.github.io/posts/narnia-6-overthewire/" /><link rel="prev" href="https://omer-biz.github.io/posts/narnia-5-overthewire/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Narnia 6 - OverTheWire",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/omer-biz.github.io\/posts\/narnia-6-overthewire\/"
+        },"genre": "posts","keywords": "ctf, narnia, overthewire, narnia6, hacking","wordcount":  758 ,
+        "url": "https:\/\/omer-biz.github.io\/posts\/narnia-6-overthewire\/","datePublished": "2021-04-20T13:48:36+03:00","dateModified": "2021-04-20T13:48:36+03:00","publisher": {
+            "@type": "Organization",
+            "name": "Omer"},"author": {
+                "@type": "Person",
+                "name": "Omer"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Omer&#39;s Blog">Omer&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/" title="Home Page"> Home </a><a class="menu-item" href="/posts/" title="Blog Posts"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Omer&#39;s Blog">Omer&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/" title="Home Page">Home</a><a class="menu-item" href="/posts/" title="Blog Posts">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Narnia 6 - OverTheWire</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Omer</a></span>&nbsp;<span class="post-category">included in <a href="/categories/writeup/"><i class="far fa-folder fa-fw"></i>Writeup</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-20">2021-04-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;758 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#examining">Examining</a></li>
+    <li><a href="#exploiting">Exploiting</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="narnia-6---overthewire">Narnia 6 - OverTheWire</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This level is all about overflowing into a local variable, specifically to a local function
+pointer variable. When you run the program without any argument it will exit asking for
+2 arguments. These two arguments are mapped or copied to the two local variables on the stack, namely <code>b1</code>, and <code>b2</code>.
+They are copied using <code>strcpy</code> which we know is not a safe way of copying from user inputs.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">extern</span> <span class="kt">char</span> <span class="o">**</span><span class="n">environ</span><span class="p">;</span>
+
+<span class="c1">// tired of fixing values...
+</span><span class="c1">// - morla
+</span><span class="c1"></span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">get_sp</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">__asm__</span><span class="p">(</span><span class="s">&#34;movl %esp,%eax</span><span class="se">\n\t</span><span class="s">&#34;</span>
+               <span class="s">&#34;and $0xff000000, %eax&#34;</span>
+               <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+    <span class="kt">char</span> <span class="n">b1</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">b2</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+    <span class="kt">int</span>  <span class="p">(</span><span class="o">*</span><span class="n">fp</span><span class="p">)(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">char</span> <span class="o">*</span><span class="p">))</span><span class="o">&amp;</span><span class="n">puts</span><span class="p">,</span> <span class="n">i</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="o">!=</span><span class="mi">3</span><span class="p">){</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s b1 b2</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="p">}</span>
+
+    <span class="cm">/* clear environ */</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">environ</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">memset</span><span class="p">(</span><span class="n">environ</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">environ</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
+    <span class="cm">/* clear argz    */</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span> <span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">memset</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
+
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">b2</span><span class="p">,</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="c1">//if(((unsigned long)fp &amp; 0xff000000) == 0xff000000)
+</span><span class="c1"></span>    <span class="k">if</span><span class="p">(((</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">fp</span> <span class="o">&amp;</span> <span class="mh">0xff000000</span><span class="p">)</span> <span class="o">==</span> <span class="n">get_sp</span><span class="p">())</span>
+            <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">setreuid</span><span class="p">(</span><span class="n">geteuid</span><span class="p">(),</span><span class="n">geteuid</span><span class="p">());</span>
+    <span class="n">fp</span><span class="p">(</span><span class="n">b1</span><span class="p">);</span>
+
+    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The first that may confuse you when you look at this code may be on line 18, the:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">fp</span><span class="p">)(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">char</span> <span class="o">*</span><span class="p">))</span><span class="o">&amp;</span><span class="n">puts</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>This is the line where the function pointer is being declared, and assigned the address of
+the <code>puts</code> function, and letter called with one of our input. The signature of the <code>puts</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">puts</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">s</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>And if you try to compare this with the <code>int(*fp)(char *)</code> part of the previous code you will
+see the resemblance. Take a note of this we will be using this in our exploit.</p>
+<p>The next part that seems to peculiar is the following:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">get_sp</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">__asm__</span><span class="p">(</span><span class="s">&#34;movl %esp,%eax</span><span class="se">\n\t</span><span class="s">&#34;</span>
+               <span class="s">&#34;and $0xff000000, %eax&#34;</span>
+               <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The <code>__asm__</code> function is used to include native Assembly code directly into C source code.
+The <code>get_sp</code> function is anding what ever is on the stack with <code>0xff000000</code>, but I don&rsquo;t
+know why I will update this post when I figure it out. I&rsquo;m really Sorry for the inconvenience.</p>
+<h2 id="examining">Examining</h2>
+<p>Moving on, If you try to get control of the <code>eip</code> register you can but that is no use because:</p>
+<ul>
+<li>The environment variables are all being zeroed out.</li>
+<li>The argument variables other than the first three are being zeroed out.</li>
+<li>The two buffers we have are only 8 bytes long, which can not hold the shellcode without
+overwriting other important memory.</li>
+</ul>
+<p>If you look closely though, you can see that we can overwrite the function pointer, <code>fp</code>,
+that points to the <code>puts</code> function. This is very convenient because the function is being called
+later, it is being called with one of our inputs, and we can overwrite it with any function
+we want. A good function that has the same signature with the <code>puts</code> that can be used to
+spawn a shell is the <code>system</code> function.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">system</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">command</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>If somehow we make the program execute this function with the <code>&quot;/bin/sh&quot;</code> string we are done.</p>
+<p>Let&rsquo;s look at how we can do that. First lets look at some assembly code. This the disassembly
+of the main function.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./Pictures/screenshot_Apr_21_12:32:39_AM.png"
+        data-srcset="./Pictures/screenshot_Apr_21_12:32:39_AM.png, ./Pictures/screenshot_Apr_21_12:32:39_AM.png 1.5x, ./Pictures/screenshot_Apr_21_12:32:39_AM.png 2x"
+        data-sizes="auto"
+        alt="./Pictures/screenshot_Apr_21_12:32:39_AM.png"
+        title="Loading puts" /></p>
+<p>The blue highlighted part is where the program loads the address of puts which is <code>0x8048430</code>
+to the <code>fb</code> function pointer. You can check this by typing <code>x/x 0x8048430</code> on the <code>gdb</code> prompt</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./Pictures/screenshot_Apr_21_12:43:21_AM.png"
+        data-srcset="./Pictures/screenshot_Apr_21_12:43:21_AM.png, ./Pictures/screenshot_Apr_21_12:43:21_AM.png 1.5x, ./Pictures/screenshot_Apr_21_12:43:21_AM.png 2x"
+        data-sizes="auto"
+        alt="./Pictures/screenshot_Apr_21_12:43:21_AM.png"
+        title="Examining puts" /></p>
+<p>Now let&rsquo;s examine the stack after our inputs have loaded. For visibility I will load
+4 <code>A</code>s in the first argument and 4 <code>B</code>s in the second argument. But first I will set a break
+point after the copy of both arguments is done.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./Pictures/screenshot_Apr_21_12:51:25_AM.png"
+        data-srcset="./Pictures/screenshot_Apr_21_12:51:25_AM.png, ./Pictures/screenshot_Apr_21_12:51:25_AM.png 1.5x, ./Pictures/screenshot_Apr_21_12:51:25_AM.png 2x"
+        data-sizes="auto"
+        alt="./Pictures/screenshot_Apr_21_12:51:25_AM.png"
+        title="Examining The Stack" /></p>
+<p>The red highlighted part is the <code>b1</code> variable, and the blue highlighted part is <code>b2</code> variable.
+Down bellow don&rsquo;t forget that <code>fp</code> is being called with <code>b1</code>. And note that <code>b1</code> is written
+first.</p>
+<h2 id="exploiting">Exploiting</h2>
+<p>Which means to exploit this we can first overwrite what&rsquo;s on the <code>fp</code> with the address of
+the <code>system</code> function using the <code>b1</code> buffer, and then overwrite the <code>b1</code> buffer to include
+the <code>/bin/sh</code> string using <code>b2</code> buffer. To get the address of the system function you just
+have to type <code>print system</code> in gdb, you have to run the program first.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./Pictures/screenshot_Apr_21_01:21:36_AM.png"
+        data-srcset="./Pictures/screenshot_Apr_21_01:21:36_AM.png, ./Pictures/screenshot_Apr_21_01:21:36_AM.png 1.5x, ./Pictures/screenshot_Apr_21_01:21:36_AM.png 2x"
+        data-sizes="auto"
+        alt="./Pictures/screenshot_Apr_21_01:21:36_AM.png"
+        title="Address of System" /></p>
+<p>After acquiring the address of <code>system</code> all you have to do is plug it in and you are done.</p>
+<pre><code>./narnia6 aaaaaaaa$(echo -en &quot;\x50\xc8\xe4\xf7&quot;) 'bbbbbbbb/bin/sh'
+</code></pre><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./Pictures/screenshot_Apr_21_01:24:24_AM.png"
+        data-srcset="./Pictures/screenshot_Apr_21_01:24:24_AM.png, ./Pictures/screenshot_Apr_21_01:24:24_AM.png 1.5x, ./Pictures/screenshot_Apr_21_01:24:24_AM.png 2x"
+        data-sizes="auto"
+        alt="./Pictures/screenshot_Apr_21_01:24:24_AM.png"
+        title="Done!!!" /></p>
+<p>Thank you for reading :)</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-04-20</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://omer-biz.github.io/posts/narnia-6-overthewire/" data-title="Narnia 6 - OverTheWire" data-via="_th4tk1d" data-hashtags="ctf,narnia,overthewire,narnia6,hacking"><i class="fab fa-twitter fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ctf/">ctf</a>,&nbsp;<a href="/tags/narnia/">narnia</a>,&nbsp;<a href="/tags/overthewire/">overthewire</a>,&nbsp;<a href="/tags/narnia6/">narnia6</a>,&nbsp;<a href="/tags/hacking/">hacking</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/narnia-5-overthewire/" class="prev" rel="prev" title="Narnia 5 - OverTheWire"><i class="fas fa-angle-left fa-fw"></i>Narnia 5 - OverTheWire</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

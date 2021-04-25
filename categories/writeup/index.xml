@@ -4,7 +4,14 @@
         <link>https://omer-biz.github.io/categories/writeup/</link>
         <description>Writeup - Category - Omer&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>omerabdi@pm.me (Omer)</managingEditor>
-            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Fri, 16 Apr 2021 12:19:38 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/categories/writeup/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Tue, 20 Apr 2021 13:48:36 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/categories/writeup/" rel="self" type="application/rss+xml" /><item>
+    <title>Narnia 6 - OverTheWire</title>
+    <link>https://omer-biz.github.io/posts/narnia-6-overthewire/</link>
+    <pubDate>Tue, 20 Apr 2021 13:48:36 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/posts/narnia-6-overthewire/</guid>
+    <description><![CDATA[Narnia 6 - OverTheWire Introduction This level is all about overflowing into a local variable, specifically to a local function pointer variable. When you run the program without any argument it will exit asking for 2 arguments. These two arguments are mapped or copied to the two local variables on the stack, namely b1, and b2. They are copied using strcpy which we know is not a safe way of copying from user inputs.]]></description>
+</item><item>
     <title>Narnia 5 - OverTheWire</title>
     <link>https://omer-biz.github.io/posts/narnia-5-overthewire/</link>
     <pubDate>Fri, 16 Apr 2021 12:19:38 &#43;0300</pubDate>
