@@ -4,7 +4,17 @@
         <link>https://omer-biz.github.io/posts/</link>
         <description>All Posts | Omer&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>omerabdi@pm.me (Omer)</managingEditor>
-            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Tue, 20 Apr 2021 13:48:36 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Wed, 21 Apr 2021 22:08:02 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Narnia 7 - OverTheWire</title>
+    <link>https://omer-biz.github.io/posts/narnia-7-overthewire/</link>
+    <pubDate>Wed, 21 Apr 2021 22:08:02 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/posts/narnia-7-overthewire/</guid>
+    <description><![CDATA[Narnia 7 - OverTheWire Intro This level is kind of a combination of the previous two Levels. You have to overwrite a function pointer, but you have to do it using a format string vulnerability there is no overflowing this time.
+Now Let&rsquo;s run the program see what it does.
+narnia7@narnia:/narnia$ ./narnia7 Usage: ./narnia7 &lt;buffer&gt; narnia7@narnia:/narnia$ The program asks us for an input.
+narnia7@narnia:/narnia$ ./narnia7 AAAA goodfunction() = 0x80486ff hackedfunction() = 0x8048724 before : ptrf() = 0x80486ff (0xffffd628) I guess you want to come to the hackedfunction.]]></description>
+</item><item>
     <title>Narnia 6 - OverTheWire</title>
     <link>https://omer-biz.github.io/posts/narnia-6-overthewire/</link>
     <pubDate>Tue, 20 Apr 2021 13:48:36 &#43;0300</pubDate>

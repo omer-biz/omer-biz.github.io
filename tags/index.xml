@@ -4,12 +4,47 @@
         <link>https://omer-biz.github.io/tags/</link>
         <description>Tags - Tag - Omer&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>omerabdi@pm.me (Omer)</managingEditor>
-            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Tue, 20 Apr 2021 13:48:36 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Wed, 21 Apr 2021 22:08:02 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>binary_exploitation</title>
+    <link>https://omer-biz.github.io/tags/binary_exploitation/</link>
+    <pubDate>Wed, 21 Apr 2021 22:08:02 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/tags/binary_exploitation/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>ctf</title>
     <link>https://omer-biz.github.io/tags/ctf/</link>
-    <pubDate>Tue, 20 Apr 2021 13:48:36 &#43;0300</pubDate>
+    <pubDate>Wed, 21 Apr 2021 22:08:02 &#43;0300</pubDate>
     <author>Author</author>
     <guid>https://omer-biz.github.io/tags/ctf/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>exploitation</title>
+    <link>https://omer-biz.github.io/tags/exploitation/</link>
+    <pubDate>Wed, 21 Apr 2021 22:08:02 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/tags/exploitation/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>narnia</title>
+    <link>https://omer-biz.github.io/tags/narnia/</link>
+    <pubDate>Wed, 21 Apr 2021 22:08:02 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/tags/narnia/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>overthewire</title>
+    <link>https://omer-biz.github.io/tags/overthewire/</link>
+    <pubDate>Wed, 21 Apr 2021 22:08:02 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/tags/overthewire/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>wargame</title>
+    <link>https://omer-biz.github.io/tags/wargame/</link>
+    <pubDate>Wed, 21 Apr 2021 22:08:02 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/tags/wargame/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>hacking</title>
@@ -19,25 +54,11 @@
     <guid>https://omer-biz.github.io/tags/hacking/</guid>
     <description><![CDATA[]]></description>
 </item><item>
-    <title>narnia</title>
-    <link>https://omer-biz.github.io/tags/narnia/</link>
-    <pubDate>Tue, 20 Apr 2021 13:48:36 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/tags/narnia/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
     <title>narnia6</title>
     <link>https://omer-biz.github.io/tags/narnia6/</link>
     <pubDate>Tue, 20 Apr 2021 13:48:36 &#43;0300</pubDate>
     <author>Author</author>
     <guid>https://omer-biz.github.io/tags/narnia6/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>overthewire</title>
-    <link>https://omer-biz.github.io/tags/overthewire/</link>
-    <pubDate>Tue, 20 Apr 2021 13:48:36 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/tags/overthewire/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>binary exploitation</title>
@@ -52,27 +73,6 @@
     <pubDate>Fri, 16 Apr 2021 12:19:38 &#43;0300</pubDate>
     <author>Author</author>
     <guid>https://omer-biz.github.io/tags/format_strings/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>narnia5</title>
-    <link>https://omer-biz.github.io/tags/narnia5/</link>
-    <pubDate>Fri, 16 Apr 2021 12:19:38 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/tags/narnia5/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>ctfs</title>
-    <link>https://omer-biz.github.io/tags/ctfs/</link>
-    <pubDate>Tue, 09 Feb 2021 10:34:24 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/tags/ctfs/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>dmeu</title>
-    <link>https://omer-biz.github.io/tags/dmeu/</link>
-    <pubDate>Fri, 15 Jan 2021 16:29:48 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/tags/dmeu/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>

