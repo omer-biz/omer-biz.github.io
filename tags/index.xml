@@ -4,7 +4,14 @@
         <link>https://omer-biz.github.io/tags/</link>
         <description>Tags - Tag - Omer&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>omerabdi@pm.me (Omer)</managingEditor>
-            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Wed, 21 Apr 2021 22:08:02 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Wed, 05 May 2021 17:27:31 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>symlinks</title>
+    <link>https://omer-biz.github.io/tags/symlinks/</link>
+    <pubDate>Wed, 05 May 2021 17:27:31 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/tags/symlinks/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>binary_exploitation</title>
     <link>https://omer-biz.github.io/tags/binary_exploitation/</link>
     <pubDate>Wed, 21 Apr 2021 22:08:02 &#43;0300</pubDate>
@@ -66,13 +73,6 @@
     <pubDate>Fri, 16 Apr 2021 12:19:38 &#43;0300</pubDate>
     <author>Author</author>
     <guid>https://omer-biz.github.io/tags/binary-exploitation/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>format_strings</title>
-    <link>https://omer-biz.github.io/tags/format_strings/</link>
-    <pubDate>Fri, 16 Apr 2021 12:19:38 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/tags/format_strings/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>
