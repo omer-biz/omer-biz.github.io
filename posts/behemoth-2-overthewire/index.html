@@ -9,8 +9,8 @@
 <meta property="og:description" content="Behemoth 2 - OverTheWire Intro The are more than one way to solve this challenge, and me being me I chose the hard way. After finally solving this challenge it was time to read other peoples writeups, as usual. I will share the easy way at the end, but I think you could learn a thing or two from the way I solved it. To start I decided to directly go and reverse the binary since Behemoth doesn&rsquo;t offer any source code." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://omer-biz.github.io/posts/behemoth-2-overthewire/" /><meta property="og:image" content="https://omer-biz.github.io/posts/behemoth-2-overthewire/featured-image.jpg"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-05-05T17:27:31&#43;03:00" />
-<meta property="article:modified_time" content="2021-05-05T17:27:31&#43;03:00" />
+<meta property="article:published_time" content="2021-05-05T17:27:31+03:00" />
+<meta property="article:modified_time" content="2021-05-05T17:27:31+03:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://omer-biz.github.io/posts/behemoth-2-overthewire/featured-image.jpg"/>
@@ -113,7 +113,7 @@ solved it. To start I decided to directly go and reverse the binary since Behemo
 offer any source code. I&rsquo;m using <code>radare2</code> to reverse the binary. Here is the main function.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -200,7 +200,7 @@ offer any source code. I&rsquo;m using <code>radare2</code> to reverse the binar
 </span><span class="lnt">85
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-asm" data-lang="asm">            <span class="c">; DATA XREF from entry0 @ 0x8048487
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm">            <span class="c">; DATA XREF from entry0 @ 0x8048487
 </span><span class="c"></span><span class="err">┌</span> <span class="err">233:</span> <span class="nf">int</span> <span class="no">main</span> <span class="p">(</span><span class="no">char</span> <span class="p">**</span><span class="no">argv</span><span class="p">)</span><span class="c">;
 </span><span class="c"></span><span class="err">│</span>           <span class="c">; var void *buf @ ebp-0x88
 </span><span class="c"></span><span class="err">│</span>           <span class="c">; var char *string @ ebp-0x24
@@ -291,7 +291,7 @@ offer any source code. I&rsquo;m using <code>radare2</code> to reverse the binar
 <p>I&rsquo;m not an expert at reverse engineering but here is what I think is going on.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -306,7 +306,7 @@ offer any source code. I&rsquo;m using <code>radare2</code> to reverse the binar
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-asm" data-lang="asm"><span class="na">...snip...</span>
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="na">...snip...</span>
 <span class="err">0</span><span class="nf">x0804857d</span>      <span class="no">e87efeffff</span>     <span class="no">call</span> <span class="no">sym.imp.getpid</span>         <span class="c">; int getpid(void)
 </span><span class="c"></span><span class="mi">0x08048582</span>      <span class="mi">8945</span><span class="no">f4</span>         <span class="no">mov</span> <span class="no">dword</span> <span class="p">[</span><span class="no">var_ch</span><span class="p">],</span> <span class="no">eax</span>
 <span class="err">0</span><span class="nf">x08048585</span>      <span class="mi">8</span><span class="no">d45dc</span>         <span class="no">lea</span> <span class="no">eax</span><span class="p">,</span> <span class="p">[</span><span class="no">string</span><span class="p">]</span>
@@ -327,7 +327,7 @@ variable <code>path</code> at <code>ebp-0x10</code> which points into the <code>
 process id of the program as a string.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -352,7 +352,7 @@ process id of the program as a string.</p>
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-asm" data-lang="asm"><span class="na">...snip...</span>
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="na">...snip...</span>
 <span class="err">0</span><span class="nf">x080485b2</span>      <span class="no">e819010000</span>     <span class="no">call</span> <span class="no">sym.lstat</span>              <span class="c">; void lstat(const char *path, void *buf)
 </span><span class="c"></span><span class="mi">0x080485b7</span>      <span class="mi">83</span><span class="no">c410</span>         <span class="no">add</span> <span class="no">esp</span><span class="p">,</span> <span class="mi">0x10</span>
 <span class="err">0</span><span class="nf">x080485ba</span>      <span class="mi">2500</span><span class="no">f00000</span>     <span class="no">and</span> <span class="no">eax</span><span class="p">,</span> <span class="mi">0xf000</span>
@@ -462,7 +462,7 @@ in unsafe way by not specifying the full path. This can be exploited by changing
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
         </div>
     </footer></div>

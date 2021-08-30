@@ -10,8 +10,8 @@
 The need for this comes from people using window managers, or keyboard driven text editors like vim, and emacs or just you use the ctrl key a lot and you hate the weird motion you have to do to get to it." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://omer-biz.github.io/posts/remap-capslock-to-escape-and-ctrl/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-12-31T09:57:46&#43;03:00" />
-<meta property="article:modified_time" content="2020-12-31T09:57:46&#43;03:00" />
+<meta property="article:published_time" content="2020-12-31T09:57:46+03:00" />
+<meta property="article:modified_time" content="2020-12-31T09:57:46+03:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Remap Capslock to Escape and Ctrl"/>
@@ -108,10 +108,10 @@ you have to do to get to it.</p>
 like so on arch based systems.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S xcape xorg-setxkbmap
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S xcape xorg-setxkbmap
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="how-to-use-them">How to use them</h2>
@@ -123,11 +123,11 @@ capslock with ctrl.</p>
 <p>To swap the Capslock key with The Ctrl key:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># make CapsLock behave like Ctrl:</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># make CapsLock behave like Ctrl:</span>
 setxkbmap -option ctrl:swapcaps
 </code></pre></td></tr></table>
 </div>
@@ -135,18 +135,18 @@ setxkbmap -option ctrl:swapcaps
 behave as Escape key when pressed for a short period of time.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># make short-pressed Ctrl behave like Escape:</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># make short-pressed Ctrl behave like Escape:</span>
 xcape -e <span class="s1">&#39;Control_L=Escape&#39;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>Now combine These put them in a script and make them run on a startup.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -155,7 +155,7 @@ xcape -e <span class="s1">&#39;Control_L=Escape&#39;</span>
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
 </span><span class="cp"></span>
 <span class="c1"># make CapsLock behave like Ctrl:</span>
 setxkbmap -option ctrl:swapcaps
@@ -167,12 +167,12 @@ xcape -e <span class="s1">&#39;Control_L=Escape&#39;</span>
 </div><p>For example</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">chmod +x keyb.sh
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">chmod +x keyb.sh
 <span class="c1"># you probably want to put before starting your window manager, but you get the idea</span>
 <span class="nb">echo</span> <span class="s2">&#34;keyb.sh&#34;</span> &gt;&gt; ~/.xinitrc
 </code></pre></td></tr></table>
@@ -206,7 +206,7 @@ xcape -e <span class="s1">&#39;Control_L=Escape&#39;</span>
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
         </div>
     </footer></div>
