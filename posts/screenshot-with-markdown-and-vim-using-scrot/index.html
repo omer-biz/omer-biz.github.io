@@ -127,8 +127,8 @@ Markdown syntax to include the Pictures in my note.</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">sudo pacman -S scrot neovim xclip
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo pacman -S scrot neovim xclip
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>On other systems you may have to google how to install it using your own package manager.
 And if you&rsquo;re using Windows think about your life choices for a bit.</p>
@@ -143,8 +143,8 @@ a screenshot will be taken and stored in the home directory.</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">scrot
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">scrot
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>To save the screenshot to a specific directory, supply the path to after the
 command <code>scrot</code>.</p>
@@ -153,8 +153,8 @@ command <code>scrot</code>.</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">scrot &lt;path&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">scrot &lt;path&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>And to take a section of your screen all you have to is supply the <code>--select</code>
 option to the <code>scrot</code> command. Your pointer will change and you can select the
@@ -164,8 +164,8 @@ area you want to take screenshot of.</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">scrot --select &lt;path&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">scrot --select &lt;path&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="neovim">Neo(vim)</h2>
 <p>Vim is a text editor and if you&rsquo;re reading this you probably know what vim is, if
@@ -195,16 +195,16 @@ and put where you want, I have it in  <code>scripts</code> directory.</p>
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
-</span><span class="cp"></span>
-<span class="nv">pwd</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
-<span class="nv">pic_name</span><span class="o">=</span><span class="s2">&#34;screenshot_</span><span class="k">$(</span>date <span class="s2">&#34;+%h_%d_%I:%M:%S_%p&#34;</span><span class="k">)</span><span class="s2">.png&#34;</span>
-
-mkdir -p <span class="s2">&#34;</span><span class="nv">$pwd</span><span class="s2">/Pictures&#34;</span>
-scrot --select <span class="s2">&#34;</span><span class="nv">$pwd</span><span class="s2">/Pictures/</span><span class="nv">$pic_name</span><span class="s2">&#34;</span>
-
-<span class="nb">echo</span> -n <span class="s2">&#34;./Pictures/</span><span class="nv">$pic_name</span><span class="s2">&#34;</span> <span class="p">|</span> xclip
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">pwd</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">pic_name</span><span class="o">=</span><span class="s2">&#34;screenshot_</span><span class="k">$(</span>date <span class="s2">&#34;+%h_%d_%I:%M:%S_%p&#34;</span><span class="k">)</span><span class="s2">.png&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mkdir -p <span class="s2">&#34;</span><span class="nv">$pwd</span><span class="s2">/Pictures&#34;</span>
+</span></span><span class="line"><span class="cl">scrot --select <span class="s2">&#34;</span><span class="nv">$pwd</span><span class="s2">/Pictures/</span><span class="nv">$pic_name</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -n <span class="s2">&#34;./Pictures/</span><span class="nv">$pic_name</span><span class="s2">&#34;</span> <span class="p">|</span> xclip
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>And make it executable.</p>
 <div class="highlight"><div class="chroma">
@@ -212,8 +212,8 @@ scrot --select <span class="s2">&#34;</span><span class="nv">$pwd</span><span cl
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">chmod +x script.sh
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">chmod +x script.sh
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="vim-config">Vim config</h3>
 <p>Put the following in your vim configuration. This maps <code>CTRL-s</code> to call the screenshoting
@@ -223,8 +223,8 @@ script and inserts a markdown syntax for images in the current line.</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">nnoremap</span> <span class="p">&lt;</span><span class="nx">C</span><span class="p">-</span><span class="nx">s</span><span class="p">&gt;</span> :<span class="p">!</span>$<span class="nx">HOME</span><span class="sr">/.local/</span><span class="nx">scripts</span>/<span class="nx">screenshot</span>.<span class="nx">sh</span><span class="p">&lt;</span><span class="nx">CR</span><span class="p">&gt;&lt;</span><span class="nx">CR</span><span class="p">&gt;</span><span class="nx">i</span><span class="p">!</span>[]<span class="p">(&lt;</span><span class="nx">ESC</span><span class="p">&gt;</span>&#34;*<span class="nx">pA</span><span class="p">)&lt;</span><span class="nx">Home</span><span class="p">&gt;&lt;</span><span class="nx">Right</span><span class="p">&gt;&lt;</span><span class="nx">Right</span><span class="p">&gt;</span><span class="err">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="nx">nnoremap</span> <span class="p">&lt;</span><span class="nx">C</span><span class="p">-</span><span class="nx">s</span><span class="p">&gt;</span> :<span class="p">!</span>$<span class="nx">HOME</span><span class="sr">/.local/</span><span class="nx">scripts</span>/<span class="nx">screenshot</span>.<span class="nx">sh</span><span class="p">&lt;</span><span class="nx">CR</span><span class="p">&gt;&lt;</span><span class="nx">CR</span><span class="p">&gt;</span><span class="nx">i</span><span class="p">!</span>[]<span class="p">(&lt;</span><span class="nx">ESC</span><span class="p">&gt;</span>&#34;*<span class="nx">pA</span><span class="p">)&lt;</span><span class="nx">Home</span><span class="p">&gt;&lt;</span><span class="nx">Right</span><span class="p">&gt;&lt;</span><span class="nx">Right</span><span class="p">&gt;</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>And that&rsquo;s it your done. Now ever time you want to insert a screenshot you just
 have to hit <code>CTRL-s</code> and insert the image name. Here is a demo of me trying to
@@ -262,8 +262,8 @@ record a video using <code>ffmpeg</code> and capture it&rsquo;s output.</p>
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.96.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
         </div>
     </footer></div>
 
@@ -272,5 +272,5 @@ record a video using <code>ffmpeg</code> and capture it&rsquo;s output.</p>
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

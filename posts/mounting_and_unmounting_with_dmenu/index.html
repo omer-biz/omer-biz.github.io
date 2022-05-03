@@ -156,8 +156,8 @@ them it prints it, the option you chose, to standard output.</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> -e <span class="s2">&#34;choice 1\nchoice 2 \n choice 3&#34;</span> <span class="p">|</span> dmenu
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;choice 1\nchoice 2 \n choice 3&#34;</span> <span class="p">|</span> dmenu
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"
@@ -178,11 +178,11 @@ here and explain it after wards.</p>
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#! /bin/sh
-</span><span class="cp"></span>
-<span class="nv">mount</span><span class="o">=</span><span class="k">$(</span>lsblk -l -o NAME,LABEL,TYPE,MOUNTPOINT <span class="p">|</span> awk <span class="s1">&#39;/[part|disk] $/ {print $1 &#34;: &#34; $2}&#39;</span> <span class="p">|</span> dmenu -i -p <span class="s2">&#34;mount: &#34;</span> <span class="p">|</span> cut -d<span class="s1">&#39;:&#39;</span> -f 1<span class="k">)</span>
-<span class="o">[</span> ! -z <span class="nv">$mount</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> notify-send <span class="s2">&#34;</span><span class="k">$(</span>udisksctl mount -b <span class="s2">&#34;/dev/</span><span class="nv">$mount</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#! /bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">mount</span><span class="o">=</span><span class="k">$(</span>lsblk -l -o NAME,LABEL,TYPE,MOUNTPOINT <span class="p">|</span> awk <span class="s1">&#39;/[part|disk] $/ {print $1 &#34;: &#34; $2}&#39;</span> <span class="p">|</span> dmenu -i -p <span class="s2">&#34;mount: &#34;</span> <span class="p">|</span> cut -d<span class="s1">&#39;:&#39;</span> -f 1<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span> ! -z <span class="nv">$mount</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> notify-send <span class="s2">&#34;</span><span class="k">$(</span>udisksctl mount -b <span class="s2">&#34;/dev/</span><span class="nv">$mount</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>The First line tells who ever is going to run this script to use <code>/bin/sh</code> to run it.
 The <code>mount=</code> part is simply assigning a variable. The <code>$()</code> means to replace what every is
@@ -231,11 +231,11 @@ been mounted.</p>
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/sh
-</span><span class="cp"></span>
-<span class="nv">unmount</span><span class="o">=</span><span class="k">$(</span>lsblk -l -o NAME,LABEL,TYPE,MOUNTPOINT <span class="p">|</span>  awk <span class="s1">&#39;/[part|disk] \/.*$/&amp;&amp;!/nvme/ {print $1 &#34;: &#34; $2}&#39;</span> <span class="p">|</span> dmenu -i -p <span class="s2">&#34;unmount: &#34;</span> <span class="p">|</span> cut -d <span class="s1">&#39;:&#39;</span> -f 1<span class="k">)</span>
-<span class="o">[</span> ! -z <span class="nv">$unmount</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> notify-send <span class="s2">&#34;</span><span class="k">$(</span>udisksctl unmount -f --no-user-interaction -b <span class="s2">&#34;/dev/</span><span class="nv">$unmount</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">unmount</span><span class="o">=</span><span class="k">$(</span>lsblk -l -o NAME,LABEL,TYPE,MOUNTPOINT <span class="p">|</span>  awk <span class="s1">&#39;/[part|disk] \/.*$/&amp;&amp;!/nvme/ {print $1 &#34;: &#34; $2}&#39;</span> <span class="p">|</span> dmenu -i -p <span class="s2">&#34;unmount: &#34;</span> <span class="p">|</span> cut -d <span class="s1">&#39;:&#39;</span> -f 1<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span> ! -z <span class="nv">$unmount</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> notify-send <span class="s2">&#34;</span><span class="k">$(</span>udisksctl unmount -f --no-user-interaction -b <span class="s2">&#34;/dev/</span><span class="nv">$unmount</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Although there is a bit of difference with the awk command. Here I&rsquo;m using something different
 to filter the output of <code>lsblk</code>. I&rsquo;m using <code>'/[part|disk] \/.*$/&amp;&amp;!/nvme/'</code>. If you look
@@ -271,8 +271,8 @@ filters out my main internal drive. And that&rsquo;s it folks we have done it.</
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.96.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
         </div>
     </footer></div>
 
@@ -281,5 +281,5 @@ filters out my main internal drive. And that&rsquo;s it folks we have done it.</
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

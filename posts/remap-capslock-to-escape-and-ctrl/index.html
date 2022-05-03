@@ -111,8 +111,8 @@ like so on arch based systems.</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S xcape xorg-setxkbmap
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo pacman -S xcape xorg-setxkbmap
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="how-to-use-them">How to use them</h2>
 <p><code>xcape</code> allows a key to be treated as another key when pressed for a short period of time.</p>
@@ -127,9 +127,9 @@ capslock with ctrl.</p>
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># make CapsLock behave like Ctrl:</span>
-setxkbmap -option ctrl:swapcaps
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># make CapsLock behave like Ctrl:</span>
+</span></span><span class="line"><span class="cl">setxkbmap -option ctrl:swapcaps
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Since the Capslock key now acts as a ctrl key, we tell the xcape to make the Ctrl key
 behave as Escape key when pressed for a short period of time.</p>
@@ -139,9 +139,9 @@ behave as Escape key when pressed for a short period of time.</p>
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># make short-pressed Ctrl behave like Escape:</span>
-xcape -e <span class="s1">&#39;Control_L=Escape&#39;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># make short-pressed Ctrl behave like Escape:</span>
+</span></span><span class="line"><span class="cl">xcape -e <span class="s1">&#39;Control_L=Escape&#39;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Now combine These put them in a script and make them run on a startup.</p>
 <div class="highlight"><div class="chroma">
@@ -155,14 +155,14 @@ xcape -e <span class="s1">&#39;Control_L=Escape&#39;</span>
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
-</span><span class="cp"></span>
-<span class="c1"># make CapsLock behave like Ctrl:</span>
-setxkbmap -option ctrl:swapcaps
-
-<span class="c1"># make short-pressed Ctrl behave like Escape:</span>
-xcape -e <span class="s1">&#39;Control_L=Escape&#39;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1"># make CapsLock behave like Ctrl:</span>
+</span></span><span class="line"><span class="cl">setxkbmap -option ctrl:swapcaps
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># make short-pressed Ctrl behave like Escape:</span>
+</span></span><span class="line"><span class="cl">xcape -e <span class="s1">&#39;Control_L=Escape&#39;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>For example</p>
 <div class="highlight"><div class="chroma">
@@ -172,10 +172,10 @@ xcape -e <span class="s1">&#39;Control_L=Escape&#39;</span>
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">chmod +x keyb.sh
-<span class="c1"># you probably want to put before starting your window manager, but you get the idea</span>
-<span class="nb">echo</span> <span class="s2">&#34;keyb.sh&#34;</span> &gt;&gt; ~/.xinitrc
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">chmod +x keyb.sh
+</span></span><span class="line"><span class="cl"><span class="c1"># you probably want to put before starting your window manager, but you get the idea</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;keyb.sh&#34;</span> &gt;&gt; ~/.xinitrc
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Your Done</p>
 </div><div class="post-footer" id="post-footer">
@@ -206,8 +206,8 @@ xcape -e <span class="s1">&#39;Control_L=Escape&#39;</span>
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.96.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
         </div>
     </footer></div>
 
@@ -216,5 +216,5 @@ xcape -e <span class="s1">&#39;Control_L=Escape&#39;</span>
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>
