@@ -28,7 +28,7 @@ narnia7@narnia:/narnia$ ./narnia7 AAAA goodfunction() = 0x80486ff hackedfunction
     <author>Author</author>
     <guid>https://omer-biz.github.io/posts/narnia-5-overthewire/</guid>
     <description><![CDATA[Narnia 5 - OverTheWire Introduction This level introduces what format string vulnerabilities are. A program is said to have a format string vulnerability if it pass unsensitized user input to one the printf family of functions. These are as follows.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  #include &lt;stdio.h&gt; int printf(const char *format, ...); int fprintf(FILE *stream, const char *format, ...); int dprintf(int fd, const char *format, .]]></description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 #include &lt;stdio.h&gt; int printf(const char *format, ...); int fprintf(FILE *stream, const char *format, ...); int dprintf(int fd, const char *format, .]]></description>
 </item><item>
     <title>What Is OverTheWire</title>
     <link>https://omer-biz.github.io/posts/what-is-overthewire/</link>

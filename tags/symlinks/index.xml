@@ -4,7 +4,15 @@
         <link>https://omer-biz.github.io/tags/symlinks/</link>
         <description>symlinks - Tag - Omer&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>omerabdi@pm.me (Omer)</managingEditor>
-            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Wed, 05 May 2021 17:27:31 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/tags/symlinks/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Wed, 09 Nov 2022 20:29:58 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/tags/symlinks/" rel="self" type="application/rss+xml" /><item>
+    <title>Space | HackTheBox</title>
+    <link>https://omer-biz.github.io/posts/space-htb/</link>
+    <pubDate>Wed, 09 Nov 2022 20:29:58 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/posts/space-htb/</guid>
+    <description><![CDATA[Disclaimer This post is not meant to be an in depth tutorial, meaning it won&rsquo;t tell you each and every step you need to take to solve the challenge, rather it&rsquo;s meant to guide you, and give you a high level solution so you can solve the challenge in your own way.
+Intro The binary is simple in structure and straight forward, you have a space of 0x1f(31) to fill, with eip&rsquo;s offset being at 0x12(18).]]></description>
+</item><item>
     <title>Behemoth 2 - OverTheWire</title>
     <link>https://omer-biz.github.io/posts/behemoth-2-overthewire/</link>
     <pubDate>Wed, 05 May 2021 17:27:31 &#43;0300</pubDate>
