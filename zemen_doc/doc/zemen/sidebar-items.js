@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["Month","Months of the Ethiopian year."]],"struct":[["Zemen","An Ethiopian Date."]]};
