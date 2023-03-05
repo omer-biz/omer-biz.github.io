@@ -12,7 +12,6 @@ Intro The binary is simple in structure and straight forward, you have a space o
 <meta property="og:url" content="https://omer-biz.github.io/posts/space-htb/" /><meta property="og:image" content="https://omer-biz.github.io/posts/space-htb/featured-image.jpg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-11-09T20:29:58+03:00" />
 <meta property="article:modified_time" content="2022-11-09T20:29:58+03:00" />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://omer-biz.github.io/posts/space-htb/featured-image.jpg"/>
 <meta name="twitter:title" content="Space | HackTheBox"/>
@@ -21,7 +20,7 @@ Intro The binary is simple in structure and straight forward, you have a space o
 <meta name="application-name" content="Th3Librarin">
 <meta name="apple-mobile-web-app-title" content="Th3Librarin"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://omer-biz.github.io/posts/space-htb/" /><link rel="prev" href="https://omer-biz.github.io/posts/behemoth-2-overthewire/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://omer-biz.github.io/posts/space-htb/" /><link rel="prev" href="https://omer-biz.github.io/posts/i-am-root/" /><link rel="next" href="https://omer-biz.github.io/posts/lets-write-a-proxy-server/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -183,7 +182,7 @@ paragraph is just the equivalent of the following in assemble.</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">esp</span><span class="p">,</span> <span class="mh">0x38</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nf">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">esp</span><span class="p">,</span> <span class="mh">0x38</span><span class="p">);</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>The next three lines are padding, fixing up the stack. Remember that every
@@ -251,8 +250,8 @@ chain. The shellcode is equivalent to.</p>
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ecx</span> <span class="cm">/*leak*/</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">ecx</span><span class="p">();</span>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nf">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ecx</span> <span class="cm">/*leak*/</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nf">ecx</span><span class="p">();</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>And that&rsquo;s it you send in your shellcode, and boom you a shell.</p>
@@ -287,12 +286,13 @@ chain. The shellcode is equivalent to.</p>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/behemoth-2-overthewire/" class="prev" rel="prev" title="Behemoth 2 - OverTheWire"><i class="fas fa-angle-left fa-fw"></i>Behemoth 2 - OverTheWire</a></div>
+    <div class="post-nav"><a href="/posts/i-am-root/" class="prev" rel="prev" title="I Am Root"><i class="fas fa-angle-left fa-fw"></i>I Am Root</a>
+            <a href="/posts/lets-write-a-proxy-server/" class="next" rel="next" title="Let&#39;s Write a Proxy Server">Let&#39;s Write a Proxy Server<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.104.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.109.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
         </div>
     </footer></div>
 

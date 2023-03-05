@@ -11,7 +11,6 @@
 <meta property="og:url" content="https://omer-biz.github.io/posts/narnia-6-overthewire/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-04-20T13:48:36+03:00" />
 <meta property="article:modified_time" content="2021-04-20T13:48:36+03:00" />
-
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Narnia 6 - OverTheWire"/>
 <meta name="twitter:description" content="Narnia 6 - OverTheWire Introduction This level is all about overflowing into a local variable, specifically to a local function pointer variable. When you run the program without any argument it will exit asking for 2 arguments. These two arguments are mapped or copied to the two local variables on the stack, namely b1, and b2. They are copied using strcpy which we know is not a safe way of copying from user inputs."/>
@@ -149,7 +148,7 @@ They are copied using <code>strcpy</code> which we know is not a safe way of cop
 </span></span><span class="line"><span class="cl"><span class="c1">// tired of fixing values...
 </span></span></span><span class="line"><span class="cl"><span class="c1">// - morla
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">get_sp</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">       <span class="n">__asm__</span><span class="p">(</span><span class="s">&#34;movl %esp,%eax</span><span class="se">\n\t</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="nf">__asm__</span><span class="p">(</span><span class="s">&#34;movl %esp,%eax</span><span class="se">\n\t</span><span class="s">&#34;</span>
 </span></span><span class="line"><span class="cl">               <span class="s">&#34;and $0xff000000, %eax&#34;</span>
 </span></span><span class="line"><span class="cl">               <span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -158,24 +157,24 @@ They are copied using <code>strcpy</code> which we know is not a safe way of cop
 </span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">b1</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">b2</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span>  <span class="p">(</span><span class="o">*</span><span class="n">fp</span><span class="p">)(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">char</span> <span class="o">*</span><span class="p">))</span><span class="o">&amp;</span><span class="n">puts</span><span class="p">,</span> <span class="n">i</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="o">!=</span><span class="mi">3</span><span class="p">){</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%s b1 b2</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="o">!=</span><span class="mi">3</span><span class="p">){</span> <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s b1 b2</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="nf">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="cm">/* clear environ */</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">environ</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="n">memset</span><span class="p">(</span><span class="n">environ</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">environ</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">memset</span><span class="p">(</span><span class="n">environ</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="nf">strlen</span><span class="p">(</span><span class="n">environ</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
 </span></span><span class="line"><span class="cl">    <span class="cm">/* clear argz    */</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span> <span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="n">memset</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">memset</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="nf">strlen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">strcpy</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">strcpy</span><span class="p">(</span><span class="n">b2</span><span class="p">,</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">strcpy</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">strcpy</span><span class="p">(</span><span class="n">b2</span><span class="p">,</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">//if(((unsigned long)fp &amp; 0xff000000) == 0xff000000)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span><span class="p">(((</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">fp</span> <span class="o">&amp;</span> <span class="mh">0xff000000</span><span class="p">)</span> <span class="o">==</span> <span class="n">get_sp</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">            <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">setreuid</span><span class="p">(</span><span class="n">geteuid</span><span class="p">(),</span><span class="n">geteuid</span><span class="p">());</span>
-</span></span><span class="line"><span class="cl">    <span class="n">fp</span><span class="p">(</span><span class="n">b1</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span><span class="p">(((</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">fp</span> <span class="o">&amp;</span> <span class="mh">0xff000000</span><span class="p">)</span> <span class="o">==</span> <span class="nf">get_sp</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">setreuid</span><span class="p">(</span><span class="nf">geteuid</span><span class="p">(),</span><span class="nf">geteuid</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">fp</span><span class="p">(</span><span class="n">b1</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -211,7 +210,7 @@ see the resemblance. Take a note of this we will be using this in our exploit.</
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">get_sp</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">       <span class="n">__asm__</span><span class="p">(</span><span class="s">&#34;movl %esp,%eax</span><span class="se">\n\t</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="nf">__asm__</span><span class="p">(</span><span class="s">&#34;movl %esp,%eax</span><span class="se">\n\t</span><span class="s">&#34;</span>
 </span></span><span class="line"><span class="cl">               <span class="s">&#34;and $0xff000000, %eax&#34;</span>
 </span></span><span class="line"><span class="cl">               <span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -328,8 +327,8 @@ have to type <code>print system</code> in gdb, you have to run the program first
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.104.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.109.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Omer</a></span></div>
         </div>
     </footer></div>
 

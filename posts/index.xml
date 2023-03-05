@@ -4,7 +4,14 @@
         <link>https://omer-biz.github.io/posts/</link>
         <description>All Posts | Omer&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>omerabdi@pm.me (Omer)</managingEditor>
-            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Wed, 09 Nov 2022 20:29:58 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>omerabdi@pm.me (Omer)</webMaster><lastBuildDate>Sat, 04 Mar 2023 19:00:19 &#43;0300</lastBuildDate><atom:link href="https://omer-biz.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Let&#39;s Write a Proxy Server</title>
+    <link>https://omer-biz.github.io/posts/lets-write-a-proxy-server/</link>
+    <pubDate>Sat, 04 Mar 2023 19:00:19 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/posts/lets-write-a-proxy-server/</guid>
+    <description><![CDATA[Amica - Devlog #0 A tale about a humble proxy server Lately I&rsquo;ve been trying to learn Rust using the book. While reading the book I was able to write a simple date convertions library, writing a library is a good way to get your feet wet, in my opinion. After finishing the book I was, naturally, looking for other project ideas and I landed with this. In these series we will be looking at implementing our own proxy server.]]></description>
+</item><item>
     <title>Space | HackTheBox</title>
     <link>https://omer-biz.github.io/posts/space-htb/</link>
     <pubDate>Wed, 09 Nov 2022 20:29:58 &#43;0300</pubDate>
@@ -12,6 +19,15 @@
     <guid>https://omer-biz.github.io/posts/space-htb/</guid>
     <description><![CDATA[Disclaimer This post is not meant to be an in depth tutorial, meaning it won&rsquo;t tell you each and every step you need to take to solve the challenge, rather it&rsquo;s meant to guide you, and give you a high level solution so you can solve the challenge in your own way.
 Intro The binary is simple in structure and straight forward, you have a space of 0x1f(31) to fill, with eip&rsquo;s offset being at 0x12(18).]]></description>
+</item><item>
+    <title>I Am Root</title>
+    <link>https://omer-biz.github.io/posts/i-am-root/</link>
+    <pubDate>Wed, 08 Sep 2021 10:50:34 &#43;0300</pubDate>
+    <author>Author</author>
+    <guid>https://omer-biz.github.io/posts/i-am-root/</guid>
+    <description><![CDATA[I Am Root Intro Lately a friend of mine in the neighboring dorm has bought these little devices which act as a mobile hotspot and he sometimes shares the passwords with a select group of people
+jio m2s And my natural cruiosity would not rest until I have away to gain access to this network when ever I want to.
+Since I don&rsquo;t have the time or patience to run john or hashcat I started thinking of other ways to gain access to the network as I said before he sometimes shares his password with selected group of people.]]></description>
 </item><item>
     <title>Behemoth 2 - OverTheWire</title>
     <link>https://omer-biz.github.io/posts/behemoth-2-overthewire/</link>
@@ -66,21 +82,5 @@ Each season teaches a different cybersecurity concept. For example season 1 (Ban
     <author>Author</author>
     <guid>https://omer-biz.github.io/posts/how_i_hacked_my_first_router/</guid>
     <description><![CDATA[How I Hacked My First Router I have never found a real vulnerability in the &ldquo;real world&rdquo; before. I was just playing CTFs and Wargames. One day I was looking through our old stuff, and I stumbled up on this router the ZTE - ZXDSL 831C II, and had heard before that this router has a vulnerability. So I thought this would be the perfect chance. I set it up and started pwning.]]></description>
-</item><item>
-    <title>Pandoc</title>
-    <link>https://omer-biz.github.io/posts/pandoc/</link>
-    <pubDate>Fri, 01 Jan 2021 10:46:44 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/posts/pandoc/</guid>
-    <description><![CDATA[Pandoc Have you ever wanted to write a document, but you hate using applications like MicroSoft Office, Libre Office, Google Docs, or anything of the sorts. Do you want to write your documents just like you write codes, with your code editors perk. I for example use vim and I would have loved, if these application supported vim bindings. Well look no further, you can just use pandoc.
-Pandoc is a command-line app which can be used to convert a document of any type to any other type.]]></description>
-</item><item>
-    <title>Remap Capslock to Escape and Ctrl</title>
-    <link>https://omer-biz.github.io/posts/remap-capslock-to-escape-and-ctrl/</link>
-    <pubDate>Thu, 31 Dec 2020 09:57:46 &#43;0300</pubDate>
-    <author>Author</author>
-    <guid>https://omer-biz.github.io/posts/remap-capslock-to-escape-and-ctrl/</guid>
-    <description><![CDATA[Remap Capslock to Escape and Ctrl In this post I&rsquo;m gonna be showing you how I remapped capslock to ctrl when you hold it, and esc when you tap it.
-The need for this comes from people using window managers, or keyboard driven text editors like vim, and emacs or just you use the ctrl key a lot and you hate the weird motion you have to do to get to it.]]></description>
 </item></channel>
 </rss>
